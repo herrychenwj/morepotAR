@@ -1,0 +1,27 @@
+platform :ios, '8.0'
+use_frameworks!
+target 'MuseumGuide2.0' do
+pod 'CocoaLumberjack'
+pod 'MBProgressHUD', '~> 1.0.0'
+pod 'ReactiveCocoa','2.5'
+pod 'MJRefresh', '~> 3.1.12'
+pod 'MJExtension', '~> 3.0.13'
+pod 'AFNetworking', '~> 3.1.0'
+pod 'Masonry', '~> 1.0.2'
+pod 'SSZipArchive', '~> 1.7'
+pod 'GDataXMLNode2', '~> 2.0.1'
+pod 'Reachability', '~> 3.2'
+pod 'SDCycleScrollView', '~> 1.65'
+pod 'DACircularProgress', '~> 2.3.1'
+pod 'MagicalRecord', '~> 2.3.2'
+
+pod 'UMengUShare/Social/Sina'
+pod 'UMengUShare/UI’
+pod 'UMengUShare/Social/WeChat'
+pod 'UMengUShare/Social/QQ'
+pod 'JPush', '3.0.2'
+pod 'SDWebImage/WebP'
+
+
+
+end

@@ -1,0 +1,74 @@
+/* 
+  Localizable.strings
+  MuseumGuide2.0
+
+  Created by Mr.Huang on 2017/3/17.
+  Copyright © 2017年 Heyunguanbo. All rights reserved.
+*/
+
+//"tab_news" = "NEWS";
+//"tab_tour" = "TOUR";
+//"tab_me" = "ME";
+//"ad_news" = "NEWS";
+//
+//"tour_remind" = "Choose Museums or AR Creatives";
+//"tour_refresh" = "Pull to refresh";
+//
+//"tour_loading" = "Loading...";
+//"tour_scan" = "stand right in front of the item and scan";
+//"tour_help"  = "HELP";
+//"tour_hot" = "HOT";
+//"tour_search" = "SEARCH";
+//"tour_home" = "HOME";
+//"tour_guide" = "GUIDE";
+//
+//"tour_comment" = "write a comment";
+//"tour_send" = "send";
+//
+//"tour_search_placeholder" = "Enter Keywords";
+//
+//"nav_search" = "Search";
+//"nav_login" = "Login";
+//
+//
+//"me_collection" = "My Collection";
+//"me_comment" = "My Comment";
+//"me_shareApp" = "Share App";
+//"me_setting" = "Setting";
+//
+//"me_feedback" = "Feedback";
+//"me_login" = "Login";
+//"me_bindphone" = "Bind Phone";
+//
+//"login_userplaceholder" = "Please enter the your phone number";
+//"login_codeplaceholder" = "Log in via SMS verification code";
+//"login_sendcode" = "Send Code";
+//"login_login" = "LOGIN";
+//"login_disclaimer_read" = "I have agreed and read the disclaimer";
+//"login_disclaimer" = "Disclaimer";
+//"login_qq" = "QQ";
+//"login_wx" = "WeChat";
+//"login_sina" = "Weibo";
+//"login_other" = "Others";
+//
+//
+//"pay_payment" = "Payment";
+//
+//"share_moments" = "Moments";
+//"share_chat" = "Chat";
+//"share_weibo" = "Weibo";
+//"share_qzone" = "Qzone";
+//"share_qq" = "QQ";
+//
+//"setting_sound" = "System Sound";
+//"setting_about" = "About Us";
+//"setting_instructions" = "Instructions";
+//"setting_cache" = "Clear Cache";
+//"setting_log_out" = "Log Out";
+//"setting_log_in" = "Login";
+//
+//
+//"exhibit_showall" = "...more";
+//"exhibit_close" = "close";
+
+

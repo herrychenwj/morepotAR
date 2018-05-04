@@ -1,0 +1,195 @@
+{
+	"objects":[
+
+		{
+			"videoname":"pzfj.mp4",
+                        "audioname":"pzfj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_pzfj",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"-800",
+                        "scale"    :"2",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"ahbwysjy_museum_cdfm_pzfj.jpg"
+		}
+		,
+		{
+			"videoname":"lpam.mp4",
+                        "audioname":"lpam.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_lpam",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"ahbwysjy_museum_cdfm_lpam.jpg"
+		}
+                ,
+                {
+                        "videoname":"lpam.mp4",
+                        "audioname":"lpam.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_lpam_01",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"ahbwysjy_museum_cdfm_lpam.jpg"
+                }
+                ,
+                {
+                        "videoname":"lpam.mp4",
+                        "audioname":"lpam.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_lpam_02",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"ahbwysjy_museum_cdfm_lpam.jpg"
+                }
+                ,
+                {
+			"videoname":"pxea.mp4",
+                        "audioname":"pxea.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_pxea",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+		}
+                ,
+                {
+                        "videoname":"pxea.mp4",
+                        "audioname":"pxea.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_pxea_01",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                }
+                ,
+                {
+                        "videoname":"pxea.mp4",
+                        "audioname":"pxea.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_pxea_02",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.0",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                }
+                ,
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj_01",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"0.8",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                }
+                ,
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"0.8",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                },
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj_02",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.3",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                },
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj_03",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"1.3",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                },
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj_04",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"0.8",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                },
+                {
+                        "videoname":"jepj.mp4",
+                        "audioname":"jepj.mp3",
+                        "name"     :"ahbwysjy_museum_cdfm_jepj_05",
+                        "x"        :"0",
+                        "y"        :"0",
+                        "z"        :"0",
+                        "scale"    :"0.8",
+                        "imgX"        :"0",
+                        "imgY"        :"0",
+                        "imgZ"        :"-1000",
+                        "imgscale"    :"0.4",
+                        "imgname"    :"szbwg_zx3_yc.jpg"
+                }	
+	]
+}

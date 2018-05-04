@@ -1,0 +1,124 @@
+//
+//  MuseumGuide2.0_PrefixHeader.pch
+//  MuseumGuide2.0
+//
+//  Created by Mr.Huang on 2017/2/24.
+//  Copyright © 2017年 Heyunguanbo. All rights reserved.
+//
+
+#ifndef MuseumGuide2_0_PrefixHeader_pch
+#define MuseumGuide2_0_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <CocoaLumberjack/CocoaLumberjack.h>
+#define SVGKIT_LOG_CONTEXT 556
+
+#define SVGKitLogError(frmt, ...)   LOG_MAYBE(NO,                LOG_LEVEL_DEF, DDLogFlagError,   SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define SVGKitLogWarn(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagWarning, SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define SVGKitLogInfo(frmt, ...)    LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagInfo,    SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define SVGKitLogDebug(frmt, ...)   LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagDebug,   SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+#define SVGKitLogVerbose(frmt, ...) LOG_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagVerbose, SVGKIT_LOG_CONTEXT, nil, __PRETTY_FUNCTION__, frmt, ##__VA_ARGS__)
+
+#if DEBUG
+static const int ddLogLevel = DDLogLevelVerbose;
+#else
+static const int ddLogLevel = DDLogLevelWarning;
+#endif
+#endif
+
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "MJExtension.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "RACSignal+Api.h"
+#import <Masonry/Masonry.h>
+#import "DDLog.h"
+//#import "MuseumDef.h"
+#import "NSString+URL.h"
+#import "NSErrorHelper.h"
+#import "Communtil.h"
+#import "TalkingData.h"
+#import "UIViewController+Modal.h"
+#import "TXSakuraKit.h"
+#import "FileUtil.h"
+
+//-------------------本项目常用类-------------------------
+
+
+
+//-------------------获取设备大小-------------------------
+//NavBar高度
+#define NavigationBar_HEIGHT 44
+//获取屏幕 宽度、高度
+#define kSCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define kSCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+#define IOS8    [[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 ? YES : NO
+#define kAppDelegate ((AppDelegate *)[[UIApplication sharedApplication]delegate])
+#define IPAD_DEVICE ([[UIDevice currentDevice ] userInterfaceIdiom ] == UIUserInterfaceIdiomPad)
+#define IPHONE_DEVICE ([[UIDevice currentDevice ] userInterfaceIdiom ] == UIUserInterfaceIdiomPhone)
+
+#define IPHONEX_DEVICE ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+
+#define HexRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define HexRGBAlpha(rgbValue,a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:(a)]
+
+
+
+
+//评论和文本的行间距
+#define kYYLINE_SPACE 12.0f
+//设置界面 返回文字距离边界距离
+#define kBACK_SPACE  40.f
+//短信验证码间隔
+#define kSMSDURATION  60.f
+//博物馆信息界面和展品信息界面侧边距
+#define kINFOCONTROLLERLEFT_MARGIN  42.0
+#define kINFOCONTROLLERRIGHT_MARGIN 20.0
+
+#define kPADSETTING_LEFTMARGIN  350
+
+#define kUSERSETTING_SOUND  @"USERSETTING_SOUND"
+
+#define kACCESS_TOKEN  @"accesstoken"
+
+#define kCLICK_SOUND  @"click_sound"
+#define kDISAPPER_SOUND @"disapper_sound"
+#define kBUTTON_VOICE  @"button_voice"
+//#define kWELCOME_REPLAY  @"video_replay"
+
+//判断指引小手是否出现
+#define kMUSEUM_ARHAND @"museumarhand"
+
+#define kAPPLICATION_FIRSTLAUNCHING  @"applicationfirstlunching"
+
+#define kAPPLICARION_WELCOME  @"applicationwelcome"
+
+#define kIAPLOCALSTORE  @"iaplocalstore"
+
+#define kPLACEHOLDERIMAGE  [UIImage imageNamed:@"loading"]
+
+#define kARRESOURCE_MD5(museum_id)  [NSString stringWithFormat:@"arresource_md5_%@",museum_id]
+
+#define kLOCALIZABLE @"localizable"
+
+#define kREWARDSUCCESS  @"com.morview.rewardsuccess"
+
+#define kSHOWREWARD @"com.morview.showreward"
+#define kSHOWANMIATION @"com.moreview.anmiation"
+#define kROOTSHOWANMIATION @"com.moreview.root.show.anmiation"
+
+typedef NS_ENUM(NSInteger,VCSkipType){
+    VCSkipTypePush,
+    VCSkipTypePresent
+};
+
+
+
+
+
+#endif /* MuseumGuide2_0_PrefixHeader_pch */
