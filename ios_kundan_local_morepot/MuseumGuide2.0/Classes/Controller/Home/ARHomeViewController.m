@@ -65,6 +65,7 @@
 @property (nonatomic,strong)NSArray *goodsAry;
 @end
 
+static BOOL is_loading = NO;
 @implementation ARHomeViewController
 
 - (instancetype)initWithMuseumInfo:(MuseumModel *)museum{
@@ -251,11 +252,10 @@
     //识别到多个标签的时候
     [[self rac_signalForSelector:@selector(kudanOnTrack:Exhibition_names:hasARVideo:enTitle:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(RACTuple *x) {
         @strongify(self);
-        
         NSArray *ids = x[1];
-       
-        
-        if (!self.cur_exhibit_id || ![self.cur_exhibit_id isEqualToString:x[0]]) {
+        if (is_loading) {return;}
+        is_loading = YES;
+        if (!self.cur_exhibit_id) {
             [Communtil playExhitbitSound];
             self.cur_exhibit_id = x[0];
             self.videoBtn.hidden = ![x[2] boolValue];
@@ -314,9 +314,7 @@
                 self.enExhibitBtn.horizaontalTitle = x[1];
             }
             [self beginAnmiation];
-//            if (self.cur_exhibit_id&&![x[2] boolValue]) {
-//                [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
-//            }
+            is_loading = NO;
         }
     }];
     
@@ -325,7 +323,9 @@
     
     [[self rac_signalForSelector:@selector(kudanOnTrack:Exhibition_name:hasARVideo:enTitle:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(RACTuple *x) {
         @strongify(self);
-        if (!self.cur_exhibit_id || ![self.cur_exhibit_id isEqualToString:x[0]]) {
+        if (is_loading) {return;}
+        is_loading = YES;
+        if (!self.cur_exhibit_id) {
             [Communtil playExhitbitSound];
             self.cur_exhibit_id = x[0];
             self.videoBtn.hidden = ![x[2] boolValue];
@@ -343,14 +343,13 @@
                 [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
             }
         }
+        is_loading = NO;
     }];
     [[self rac_signalForSelector:@selector(kudanLostTrack) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
         self.cur_exhibit_id = nil;
         self.exhibitBtn.verticalTitle = self.enExhibitBtn.horizaontalTitle = @"";
         self.enExhibitBtn.hidden = self.videoBtn.hidden = self.exhibitBtn.hidden = self.enAnmiationView.hidden =  self.titleAnmiationView.hidden = self.arAnmationView.hidden = YES;
-        
-        
         if (self.verExhibitBtns && self.verExhibitBtns.count>0) {
             for (VerticalButton *tempButton in self.verExhibitBtns) {
                 tempButton.hidden = YES;
