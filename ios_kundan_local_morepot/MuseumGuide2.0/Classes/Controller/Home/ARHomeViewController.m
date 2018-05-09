@@ -62,6 +62,7 @@
 @property (nonatomic,strong)UIImageView *arAnmationView;
 
 @property (nonatomic,strong)MBProgressHUD *hud;
+@property (nonatomic,strong)UIButton *closeVideoBtn;
 @property (nonatomic,strong)NSArray *goodsAry;
 @end
 
@@ -100,15 +101,8 @@ static BOOL is_loading = NO;
 }
 
 - (void)tapAction:(UIGestureRecognizer *)gesture{
-    if (self.cur_exhibit_id) {
-        if ([self.arVC isARVideoWithExhibitID:self.cur_exhibit_id]) {
-            [self.arVC hiddenVideo];
-        }
-        if (![self.ibeaconManager.curBeaconModel.exhibit_id isEqualToString:self.cur_exhibit_id]) {
-            self.cur_exhibit_id = nil;
-            self.exhibitBtn.verticalTitle = @"";
-            self.enExhibitBtn.horizaontalTitle = @"";
-        }
+    if (self.arVC.playVideo) {
+        return;
     }
     self.footerView.alpha  = self.logoBtn.alpha = 1;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -121,6 +115,7 @@ static BOOL is_loading = NO;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    self.closeVideoBtn.hidden = YES;
     self.cur_exhibit_id = nil;
     self.arVC.delegate = self;
 }
@@ -129,6 +124,17 @@ static BOOL is_loading = NO;
         _cur_exhibit_id = cur_exhibit_id;
         if (!_cur_exhibit_id) {
             self.videoBtn.hidden = self.exhibitBtn.hidden = self.enExhibitBtn.hidden = self.enAnmiationView.hidden = self.arAnmationView.hidden = self.titleAnmiationView.hidden = YES;
+            if (self.verExhibitBtns && self.verExhibitBtns.count>0) {
+                [self.verExhibitBtns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    VerticalButton *tempButton = self.verExhibitBtns[idx];
+                    tempButton.hidden = YES;
+                    tempButton.verticalTitle = @"";
+                    [tempButton removeFromSuperview];
+                    tempButton = nil;
+                }];
+            }
+            [self.verExhibitBtns removeAllObjects];
+            
         }
 }
 
@@ -176,13 +182,23 @@ static BOOL is_loading = NO;
         [self.navigationController pushViewController:vc animated:NO];
     }];
 
+//    [RACObserve(self.arVC, playVideo) subscribeNext:^(id x) {
+//        @strongify(self);
+//        self.closeVideoBtn.hidden = !([x boolValue]);
+//        NSLog(@"----%@-----",x);
+//    }];
+//    RAC(self.closeVideoBtn,hidden) =  [RACObserve(self.arVC, playVideo) flattenMap:^RACStream *(NSNumber *value) {
+//        BOOL x = [value boolValue];
+//        NSLog(@"----%@---",value);
+//        return [RACSignal return:[NSNumber numberWithBool:!x]];
+//    }];
     //请正对展品是否隐藏
     [self.viewModel.iBeaconCmd.executionSignals.switchToLatest subscribeNext:^(NSArray<iBeaconModel *>* x) {
         @strongify(self);
         [self.ibeaconManager setBeaconModelsAry:x];
     }];
     
-    [RACObserve(self.ibeaconManager, curBeaconModel) subscribeNext:^(iBeaconModel *x) {
+        [RACObserve(self.ibeaconManager, curBeaconModel) subscribeNext:^(iBeaconModel *x) {
         @strongify(self);
         if (!x) {
             self.cur_exhibit_id = self.exhibitBtn.verticalTitle = self.enExhibitBtn.horizaontalTitle = nil;
@@ -307,18 +323,14 @@ static BOOL is_loading = NO;
                     [self.exhibitids addObject:tempid[@"id"]];
                     i++;
                 }
-                
-                
             }else{
                 self.enExhibitBtn.hidden = NO;
                 self.enExhibitBtn.horizaontalTitle = x[1];
             }
             [self beginAnmiation];
-            is_loading = NO;
         }
+        is_loading = NO;
     }];
-    
-    
     
     
     [[self rac_signalForSelector:@selector(kudanOnTrack:Exhibition_name:hasARVideo:enTitle:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(RACTuple *x) {
@@ -328,6 +340,7 @@ static BOOL is_loading = NO;
         if (!self.cur_exhibit_id) {
             [Communtil playExhitbitSound];
             self.cur_exhibit_id = x[0];
+            BOOL hasVideo = [x[2] boolValue];
             self.videoBtn.hidden = ![x[2] boolValue];
             BOOL enTitle = [x[3] boolValue];
             if (!enTitle) {
@@ -338,9 +351,21 @@ static BOOL is_loading = NO;
                 self.enExhibitBtn.hidden = NO;
                 self.enExhibitBtn.horizaontalTitle = x[1];
             }
-             [self beginAnmiation];
-            if (self.cur_exhibit_id&&![x[2] boolValue]) {
-                [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
+//             [self beginAnmiation];
+//            if (self.cur_exhibit_id&&![x[2] boolValue]) {
+//                [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
+//            }
+            NSString *copyID = self.cur_exhibit_id;
+            if (self.cur_exhibit_id&&hasVideo) { //播放AR视频
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.arVC showARVideo:copyID];
+                    self.closeVideoBtn.hidden = NO;
+                    self.videoBtn.hidden = self.exhibitBtn.hidden = self.enExhibitBtn.hidden = self.enAnmiationView.hidden =self.arAnmationView.hidden = self.titleAnmiationView.hidden =  YES;
+                });
+            }else if(self.cur_exhibit_id&&!hasVideo){
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self.viewModel.exhibitInfoCmd execute:copyID?:@""];
+                });
             }
         }
         is_loading = NO;
@@ -350,33 +375,34 @@ static BOOL is_loading = NO;
         self.cur_exhibit_id = nil;
         self.exhibitBtn.verticalTitle = self.enExhibitBtn.horizaontalTitle = @"";
         self.enExhibitBtn.hidden = self.videoBtn.hidden = self.exhibitBtn.hidden = self.enAnmiationView.hidden =  self.titleAnmiationView.hidden = self.arAnmationView.hidden = YES;
+        self.closeVideoBtn.hidden = YES;
         if (self.verExhibitBtns && self.verExhibitBtns.count>0) {
-            for (VerticalButton *tempButton in self.verExhibitBtns) {
+            [self.verExhibitBtns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                VerticalButton *tempButton = self.verExhibitBtns[idx];
                 tempButton.hidden = YES;
                 tempButton.verticalTitle = @"";
                 [tempButton removeFromSuperview];
-            }
+                tempButton = nil;
+            }];
         }
         [self.verExhibitBtns removeAllObjects];
         [self.exhibitids removeAllObjects];
         
     }];
-    [[self rac_signalForSelector:@selector(kudanFinishedVideo) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
+    [[self rac_signalForSelector:@selector(kudanFinishVideo:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
-        self.videoBtn.hidden = NO;
-        if (self.exhibitBtn.hidden) {
-            self.exhibitBtn.hidden = NO;
-        }
-        if (self.enExhibitBtn.hidden) {
-            self.enExhibitBtn.hidden = NO;
-        }
-        if (self.verExhibitBtns && self.verExhibitBtns.count>0) {
-            for (VerticalButton *tempButton in _verExhibitBtns) {
-                if (tempButton.hidden) {
-                    tempButton.hidden = NO;
-                }
-            }
-        }
+        NSString *cur_id = x[0];
+        self.exhibitBtn.verticalTitle = self.enExhibitBtn.horizaontalTitle = @"";
+        self.enExhibitBtn.hidden = self.videoBtn.hidden = self.exhibitBtn.hidden = self.enAnmiationView.hidden =  self.titleAnmiationView.hidden = self.arAnmationView.hidden = YES;
+        [self.viewModel.exhibitInfoCmd execute:cur_id];
+        self.closeVideoBtn.hidden = YES;
+//        if (self.verExhibitBtns && self.verExhibitBtns.count>0) {
+//            for (VerticalButton *tempButton in _verExhibitBtns) {
+//                if (tempButton.hidden) {
+//                    tempButton.hidden = NO;
+//                }
+//            }
+//        }
     }];
     [[self.videoBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         @strongify(self);
@@ -405,6 +431,20 @@ static BOOL is_loading = NO;
             [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
         }
     }];
+    
+    [[self.closeVideoBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self);
+        if (self.cur_exhibit_id) {
+            if ([self.arVC isARVideoWithExhibitID:self.cur_exhibit_id]) {
+                [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
+                [self.arVC hiddenVideo];
+            }
+            if (![self.ibeaconManager.curBeaconModel.exhibit_id isEqualToString:self.cur_exhibit_id]) {
+                self.exhibitBtn.verticalTitle = @"";
+                self.enExhibitBtn.horizaontalTitle = @"";
+            }
+        }
+    }];
 //    [self.viewModel.loadGoodsCmd.executionSignals.switchToLatest subscribeNext:^(NSArray *x) {
 //        @strongify(self);
 //        self.goodsAry = x;
@@ -420,11 +460,13 @@ static BOOL is_loading = NO;
 - (void)initUI{
     _exhibitBtn = ({
         VerticalButton *btn = [[VerticalButton alloc]initWithFrame:CGRectZero];
+        btn.userInteractionEnabled = NO;
         [self.view addSubview:btn];
         btn;
     });
     _enExhibitBtn = ({
         HorizontalButton *btn = [[HorizontalButton alloc]initWithFrame:CGRectZero];
+        btn.userInteractionEnabled = NO;
         [self.view addSubview:btn];
         btn;
     });
@@ -456,9 +498,18 @@ static BOOL is_loading = NO;
         UIButton *videoBtn = [[UIButton alloc]initWithFrame:CGRectZero];
         [videoBtn setBackgroundImage:[UIImage imageNamed:@"i"] forState:UIControlStateNormal];
         videoBtn.hidden = YES;
+        videoBtn.alpha = 0;
         [self.view addSubview:videoBtn];
         videoBtn;
     });
+    _closeVideoBtn = ({
+        UIButton *closeBtn = [[UIButton alloc]initWithFrame:CGRectZero];
+        [closeBtn setBackgroundImage:[UIImage imageNamed:@"closevideo"] forState:UIControlStateNormal];
+        closeBtn.hidden = YES;
+        [self.view addSubview:closeBtn];
+        closeBtn;
+    });
+    
     
     _footerView = ({
         HomeFooterView *footer = [[HomeFooterView alloc]initWithFrame:CGRectZero];
@@ -519,6 +570,12 @@ static BOOL is_loading = NO;
         make.left.right.equalTo(self.view);
         make.centerY.equalTo(self.view).offset(-100);
         make.height.equalTo(@80);
+    }];
+    [self.closeVideoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view).offset(-180);
+        make.left.equalTo(self.view).offset(30);
+        make.width.equalTo(@30);
+        make.height.equalTo(@30);
     }];
     [self.logoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         if (IPHONE_DEVICE) {

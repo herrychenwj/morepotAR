@@ -25,7 +25,6 @@
 
 - (void)kudanOnTrack:(NSString *)exhibition_id Exhibition_names:(NSArray *)names hasARVideo:(BOOL)arVideo  enTitle:(BOOL)enTitle;
 
-
 - (void)kudanConfigStart;
 
 - (void)kudanConfigEnd;
@@ -39,8 +38,7 @@
 /**
  视频播放完成回调
  */
-- (void)kudanFinishedVideo;
-
+- (void)kudanFinishVideo:(NSString *)exhibit_id;
 /**
  资源加载完成后
  */

@@ -29,6 +29,17 @@
     return swapFlag;
 }
 
++ (NSString *)exhibit_id:(NSString *)exid{
+    NSString *exhibit_id = exid;
+    NSMutableArray *ary = [[exhibit_id componentsSeparatedByString:@"_"] mutableCopy];
+    NSString *lastName = [ary lastObject];
+    if (lastName.length ==2 && [Communtil isNum:lastName]) {
+        [ary removeObject:lastName];
+        exhibit_id = [ary componentsJoinedByString:@"_"];
+    }
+    return exhibit_id;
+}
+
 + (UIImage*) createImageWithColor:(UIColor*) color{
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);

@@ -13,7 +13,7 @@
 @interface Communtil : NSObject
 
 + (UIImage *)imageFromlocalpath:(NSString *)path;
-
++ (NSString *)exhibit_id:(NSString *)exid;
 +(NSString*)DataTOjsonString:(id)object;
 +(NSString*)getCurrentDate;
 /**

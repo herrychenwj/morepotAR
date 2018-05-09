@@ -170,12 +170,14 @@
 
 - (void)playableTextureDidFinish:(ARPlayableTexture *)texture{
 //    [texture reset];
-    [self hiddenVideo];
+    NSString *exhibit_id = [Communtil exhibit_id:self.curTrackable.name];
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (self.delegate && [self.delegate respondsToSelector:@selector(kudanLostTrack)]) {
-            [self.delegate kudanLostTrack];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(kudanFinishVideo:)]) {
+            [self.delegate kudanFinishVideo:exhibit_id];
         }
     });
+    [self hiddenVideo];
+
 }
 
 - (void)onTracked:(ARImageTrackable *)x{
@@ -275,8 +277,9 @@
 
 - (void)lostTracked:(ARImageTrackable *)sender{
     dispatch_sync(dispatch_get_main_queue(), ^{
+        NSString *ex_id = [Communtil exhibit_id:self.curTrackable.name];
         NSArray *video =[[self.videoAry.rac_sequence filter:^BOOL(KudanVideoModel *value) {
-            return [self.curTrackable.name isEqualToString:value.name];
+            return [ex_id isEqualToString:value.name];
         }]array];
         if (video.count > 0) {
             KudanVideoModel *vodeX = [video firstObject];
@@ -296,16 +299,16 @@
     });
 }
 
-- (void)videoWasTouched:(id)sender{
-    if ([sender isKindOfClass:[ARAlphaVideoNode class]]) {
-        ARAlphaVideoNode *node = (ARAlphaVideoNode *)sender;
-        [node.videoTexture reset];
-        [node setVisible:NO];
-        if (self.delegate && [self.delegate respondsToSelector:@selector(kudanFinishedVideo)]) {
-            [self.delegate kudanFinishedVideo];
-        }
-    }
-}
+//- (void)videoWasTouched:(id)sender{
+//    if ([sender isKindOfClass:[ARAlphaVideoNode class]]) {
+//        ARAlphaVideoNode *node = (ARAlphaVideoNode *)sender;
+//        [node.videoTexture reset];
+//        [node setVisible:NO];
+//        if (self.delegate && [self.delegate respondsToSelector:@selector(kudanFinishVideo:)]) {
+//            [self.delegate kudanFinishVideo:exhibit_id];
+//        }
+//    }
+//}
 
 - (NSArray *)namesAry{
     if (!_namesAry) {
@@ -332,7 +335,7 @@
 }
 - (NSArray *)videoAry{
     if (!_videoAry) {
-        NSString *path = [self.resourcePath stringByAppendingPathComponent:@"vediopad.json"];
+        NSString *path = [self.resourcePath stringByAppendingPathComponent:@"videonew.json"];
         NSDictionary *names = [Communtil readlocalJsonFile:path];
         NSArray *videos;
         if (!names) {
