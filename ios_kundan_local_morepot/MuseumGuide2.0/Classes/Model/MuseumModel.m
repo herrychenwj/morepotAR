@@ -31,15 +31,6 @@
     }
 }
 
-- (void)calculatethedistancebetween:(BMKUserLocation *)userLocation{
-    if (userLocation != nil && self.latitude > 0 && self.longitude>0) {
-        BMKMapPoint point1 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(self.latitude,self.longitude));
-        BMKMapPoint point2 = BMKMapPointForCoordinate(CLLocationCoordinate2DMake(userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude));
-        self.distance = BMKMetersBetweenMapPoints(point1,point2)/1000.f;
-    }else{
-        self.distance = 0;
-    }
-}
 
 
 @end

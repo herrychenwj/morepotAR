@@ -61,11 +61,6 @@
     }];
 }
 
-- (RACSignal *)talkingDataTracking:(NSString *_Nonnull)event label:(NSString *_Nullable)label params:(id _Nullable)params{
-    return [self doNext:^(id x) {
-        [TalkingData trackEvent:event label:label parameters:params];
-    }];
-}
 
 
 

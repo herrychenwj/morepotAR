@@ -11,7 +11,6 @@
 #import "ExhibitCommentModel.h"
 #import "FileUtil+Museum.h"
 #import "ExhibitInfoModel.h"
-#import "DownloadFactory.h"
 #import "ApiFactory+Tour.h"
 
 
@@ -70,63 +69,6 @@
     }
     return _moreCmtCmd;
 }
-
-- (RACCommand *)likeCmd{
-    if (!_likeCmd) {
-        @weakify(self);
-        _likeCmd =  [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-            @strongify(self);
-            return [[ApiFactory tour_exhibitlike:self.exhibit_id]showErrorMsgTo:self.hudView];
-        }];
-    }
-    return _likeCmd;
-}
-
-- (RACCommand *)likeCmtCmd{
-    if (!_likeCmtCmd) {
-        @weakify(self);
-        _likeCmtCmd = [[RACCommand alloc]initWithSignalBlock:^RACSignal *(id input) {
-            @strongify(self);
-            return [[[ApiFactory tour_exhibitcmtlike:input]showErrorMsgTo:self.hudView]map:^id(id value) {
-                return input;
-            }];
-        }];
-    }
-    return _likeCmtCmd;
-}
-
-- (RACCommand *)cmtCmd{
-    if (!_cmtCmd) {
-        @weakify(self);
-        _cmtCmd = [[RACCommand alloc]initWithEnabled:[self cmtVerification] signalBlock:^RACSignal *(id input) {
-            @strongify(self);
-            return [[ApiFactory tour_exhibitCmt:self.exhibit_id content:self.comment]showErrorMsgTo:self.hudView];
-        }];
-    }
-    return _cmtCmd;
-}
-
-- (RACCommand *)collectCmd{
-    if (!_collectCmd) {
-        @weakify(self);
-        _collectCmd =  [[RACCommand alloc]initWithEnabled:[self allowCollection] signalBlock:^RACSignal *(id input) {
-            @strongify(self);
-            return [[ApiFactory tour_exhibitFavourite:@[self.exhibit_id]]showErrorMsgTo:self.hudView];
-        }];
-    }
-    return _collectCmd;
-}
-
-//- (RACCommand *)playCmd{
-//    if (!_playCmd) {
-//        @weakify(self);
-//        _playCmd =  [[RACCommand alloc]initWithSignalBlock:^RACSignal *(NSString *input) {
-//            @strongify(self);
-//            return [[DownloadFactory cacheMP3WithUrl:input museum_id:self.basicInfo.museum_id]showErrorMsgTo:self.hudView];
-//        }];
-//    }
-//    return _playCmd;
-//}
 
 - (RACCommand *)playCmd{
     if (!_playCmd) {

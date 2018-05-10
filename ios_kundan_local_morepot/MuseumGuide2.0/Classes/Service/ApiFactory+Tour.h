@@ -6,18 +6,14 @@
 //  Copyright © 2017年 Heyunguanbo. All rights reserved.
 //
 
-#import "ApiFactory.h"
+#import "ApiFactory+Tour.h"
+
+@interface ApiFactory : NSObject
+
+@end
 
 @interface ApiFactory (Tour)
-/**
- 加载博物馆列表
- */
-+ (RACSignal *_Nullable)tour_museumlist:(id _Nullable )params;
 
-/**
- 加载ibeacon信息
- */
-+ (RACSignal *_Nullable)tour_ibeaconinfo:(NSString *__nonnull)museum_id;
 
 /**
  获取博物馆信息
@@ -37,24 +33,9 @@
  */
 + (RACSignal *_Nullable)tour_exhibitCmtlist:(NSString * __nonnull)exhibit_id  pageIndex:(NSInteger)pageIndex;
 
-/**
- 展品点赞
- */
-+ (RACSignal *_Nullable)tour_exhibitlike:(NSString *__nonnull)exhibit_id;
 
 
 
-+ (RACSignal *_Nullable)tour_exhibitCmt:(NSString *__nonnull)exhibit_id content:(NSString *__nonnull)content;
-
-
-
-/**
- 展品评论点赞
- 
- @param cmt_id 评论ID
- @return <#return value description#>
- */
-+ (RACSignal *_Nullable)tour_exhibitcmtlike:(NSString *__nonnull)cmt_id;
 
 
 /**
@@ -101,25 +82,6 @@
 + (RACSignal *_Nullable)tour_allexhibitions:(NSString *__nonnull )museum_id;
 
 
-/**
- 展品收藏
- 
- @param exhibit_ids 数组字符串
- @return <#return value description#>
- */
-+ (RACSignal *_Nullable)tour_exhibitFavourite:(NSArray *__nonnull)exhibit_ids;
-+ (RACSignal *_Nullable)tour_ibeaconJson:(NSString *__nonnull)jsonUrl;
-
-/**
- 博物馆淘宝客API
-
- @param museum_id  博物馆ID
- @return
- */
-+ (RACSignal *_Nullable)tour_taobaoke:(NSString *__nonnull)museum_id;
-
-
-+ (RACSignal *_Nullable)tour_taobaokemuseumlist;
 
 
 

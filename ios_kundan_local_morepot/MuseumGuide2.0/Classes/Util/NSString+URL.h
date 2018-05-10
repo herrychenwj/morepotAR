@@ -11,10 +11,6 @@
 @interface NSString (URL)
 
 
-- (NSString *)apiPath;
-
-- (NSString *)paymentPath;
-
 - (NSString *)localPath;
 
 

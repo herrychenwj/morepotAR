@@ -30,23 +30,6 @@
 
 
 
-/**
- 点赞
- */
-@property (nonatomic,strong,readonly)RACCommand *likeCmd;
-/**
- 评论
- */
-@property (nonatomic,strong,readonly)RACCommand *cmtCmd;
-/**
- 评论点赞
- */
-@property (nonatomic,strong,readonly)RACCommand *likeCmtCmd;
-
-/**
- 收藏到云端
- */
-@property (nonatomic,strong,readonly)RACCommand *collectCmd;
 
 
 /**

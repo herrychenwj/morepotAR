@@ -14,8 +14,6 @@
 #import "SearchCollectionViewCell.h"
 #import "SearchAllModel.h"
 #import "SearchHeaderCollectionReusableView.h"
-#import "PayViewController.h"
-#import "LoginViewController.h"
 
 @interface SearchViewController ()<UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate,UIScrollViewDelegate>
 @property (nonatomic,strong)UITextField *searchFD;
@@ -147,7 +145,6 @@ static NSString *const reusableID = @"SearchHeaderCollectionReusableView";
         return  [((SearchAllModel *)[self.allExhibitAry objectAtIndex:indexPath.section]).exhibits objectAtIndex:indexPath.row];
     }]subscribeNext:^(MapSearchModel *x) {
         @strongify(self);
-        [TalkingData trackEvent:@"搜索界面展品" label:x.name];
         [self.viewModel.exhibitInfoCmd execute:x.exhibit_id];
 //         x.lock?[self payWithTrackName:x.name]:[self.viewModel.exhibitInfoCmd execute:x.exhibit_id];
     }];
@@ -212,29 +209,6 @@ static NSString *const reusableID = @"SearchHeaderCollectionReusableView";
     return size;
 }
 
-
-
-//- (void)payWithTrackName:(NSString *)trackname{
-//    @weakify(self);
-//    PayViewController *payVC = [[PayViewController alloc]initWithMuseum:self.museum];
-//    payVC.trackName = trackname;
-//    payVC.completeBlock = ^(){
-//        @strongify(self);
-//        self.searchType == MapSearch ? [self.viewModel.mapSeachCmd execute:nil]:[self.viewModel.homeSeachCmd execute:nil];
-//        [self.viewModel.allExhibitCmd execute:nil];
-//    };
-//    payVC.loginBlock = ^(){
-//        @strongify(self);
-//        LoginViewController *loginVC = [LoginViewController loginControllerWithLoginSuccess:^{
-//            //刷新本地数据
-//            @strongify(self);
-//            self.payCheck = YES;
-//            [self.viewModel.allExhibitCmd execute:nil];
-//        }];
-//        [self.navigationController pushViewController:loginVC animated:YES];
-//    };
-//    [self presentTransparentController:payVC];
-//}
 
 
 #pragma mark InitUI

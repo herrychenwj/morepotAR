@@ -12,10 +12,8 @@
 #import "YYText.h"
 #import "YYTextAttribute.h"
 #import "YYTextContainerView.h"
-#import <Reachability/Reachability.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import <AFNetworking/AFNetworking.h>
 #import <sys/utsname.h>
 #import <AVFoundation/AVFoundation.h>
 #import <SDWebImage/UIImage+MultiFormat.h>
@@ -98,22 +96,6 @@
 
 
 + (NSString *)app_networkType{
-    switch ([AFNetworkReachabilityManager sharedManager].networkReachabilityStatus) {
-        case AFNetworkReachabilityStatusUnknown:
-            return @"unkonw";
-            break;
-        case AFNetworkReachabilityStatusNotReachable:
-            return @"disable";
-            break;
-        case AFNetworkReachabilityStatusReachableViaWWAN:
-            return @"4g";
-            break;
-        case AFNetworkReachabilityStatusReachableViaWiFi:
-            return @"wifi";
-            break;
-        default:
-            break;
-    }
     return nil;
 }
 
@@ -221,7 +203,7 @@
 }
 
 + (BOOL )isWifi{
-    return [AFNetworkReachabilityManager sharedManager].reachableViaWiFi;
+    return YES;
 }
 
 + (BOOL)localARResourceReady:(NSString *)museum_id savePath:(NSString *)savePath md5:(NSString *)md5Str{

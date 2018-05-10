@@ -6,9 +6,7 @@
 //  Copyright © 2017年 Heyunguanbo. All rights reserved.
 //
 #import "MapGuideViewController.h"
-#import "ApiFactory.h"
 #import "NAMapView.h"
-#import "GDataXMLNode.h"
 #import "SVGKImage.h"
 #import "MapExhibitView.h"
 #import "MapExhibitCollectionViewCell.h"
@@ -23,7 +21,6 @@
 #import "MapSearchModel.h"
 #import "MuItemButton.h"
 #import "WebViewController.h"
-#import "NewsWebViewController.h"
 
 @interface MapGuideViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDelegate,UITableViewDataSource>
 
@@ -63,7 +60,6 @@ static NSString *const floorCellID = @"MapFloorTableViewCell";
     TopExhibitionModel *exhibitModel = [self.topArray objectAtIndex:indexPath.row];
     cell.numLB.text = [NSString stringWithFormat:@"NO.%li",indexPath.row+1];
     cell.nameLB.text = [NSString stringWithFormat:@"  %@",exhibitModel.name];
-//    [cell.exhibitImg sd_setImageWithURL:[NSURL URLWithString:exhibitModel.imageurl.cloudPath] placeholderImage:kPLACEHOLDERIMAGE];
     cell.exhibitImg.image = [Communtil imageFromlocalpath:exhibitModel.imageurl];
     return cell;
 }
@@ -141,8 +137,6 @@ static NSString *const floorCellID = @"MapFloorTableViewCell";
         @strongify(self);
         [Communtil playClickSound];
         TopExhibitionModel *exhibitModel = [self.topArray objectAtIndex:[x integerValue]];
-        [TalkingData trackEvent:self.museum.museum_name?:@"云观博" label:@"Top展品" parameters:@{exhibitModel.name :exhibitModel.name}];
-        [TalkingData trackEvent:@"Top展品" label:self.museum.museum_name?:@"云观博" parameters:@{exhibitModel.name :exhibitModel.name}];
 
         MapModel *map = [self.mapArray objectAtIndex:self.current_floor];
         if ([map.floor isEqualToString:exhibitModel.floor]) {
@@ -252,24 +246,6 @@ static NSString *const floorCellID = @"MapFloorTableViewCell";
         make.bottom.equalTo(self.view).offset(-100);
     }];
 
-//    MuItemButton *searchBtn = [[MuItemButton alloc]initWithFrame:CGRectZero];
-//    searchBtn.itemLB.sakura.text(@"search_map");
-//    searchBtn.itemIcon.image = [UIImage imageNamed:@"search"];
-//    [self.view addSubview:searchBtn];
-//    MuItemButton *guideBtn = [[MuItemButton alloc]initWithFrame:CGRectZero];
-//    guideBtn.itemLB.sakura.text(@"tuijian");
-//    guideBtn.itemIcon.image = [UIImage imageNamed:@"raiders"];
-//    [self.view addSubview:guideBtn];
-//    [searchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.right.equalTo(self.view.mas_centerX).offset(-30);
-//        make.bottom.equalTo(self.view).offset(-16);
-//        make.width.equalTo(@50);
-//        make.height.equalTo(@60);
-//    }];
-//    [guideBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view.mas_centerX).offset(30);
-//        make.width.centerY.height.equalTo(searchBtn);
-//    }];
     @weakify(self);
     [[self.exhibitView.scrollBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         @strongify(self);
@@ -279,40 +255,6 @@ static NSString *const floorCellID = @"MapFloorTableViewCell";
             [self.exhibitView.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow: (currentIndexPath.row == self.topArray.count - 1) ?0:currentIndexPath.row+1 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];
         }
     }];
-//    [[[searchBtn rac_signalForControlEvents:UIControlEventTouchUpInside] autoPlaySound]subscribeNext:^(id x) {
-//        @strongify(self);
-//        SearchViewController *vc = [[SearchViewController alloc]initWithMuseumInfo:self.museum searchType:MapSearch searchResult:^(MapSearchModel *searhResult) {
-//            @strongify(self);
-//            NSArray *mapFloor = [[self.mapArray.rac_sequence filter:^BOOL(MapModel *value) {
-//                return [value.floor isEqualToString:searhResult.floor];
-//            }] array];
-//            if (mapFloor.count > 0) { //存在地图  显示一下地图
-//                MapModel *map = [mapFloor firstObject];
-//                [self.mapView displaySVGMapWithURL:map.filename.cloudPath museum_id:self.museum.museum_id];
-//                [self.mapView setZoomScale:0 animated:NO];
-//                [self.mapView removeAllAnnotations:YES];
-//                [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.mapArray indexOfObject:map] inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-//                [self.exhibitView.collectionView reloadData];
-//                NSArray *x = [searhResult.location componentsSeparatedByString:@","];
-//                if ([x count] == 2) {
-//                    NAAnnotation * brisbane = [NAAnnotation annotationWithPoint:CGPointMake([x[0] floatValue], [x[1] floatValue])];
-//                    [self.mapView addPinAnnotation:brisbane imageName:@"wenwugps" animated:NO];
-//                    [self.mapView setZoomScale:0 animated:NO];
-//                }
-//            }
-//        }];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }];
-//    [[[guideBtn rac_signalForControlEvents:UIControlEventTouchUpInside] talkingDataTracking:@"攻略" label:self.museum.museum_name params:nil]subscribeNext:^(id x) {
-//        @strongify(self);
-//        [TalkingData trackEvent:self.museum.museum_name label:@"攻略"];
-////        NewsWebViewController *vc = [[NewsWebViewController alloc]init];
-////        vc.url = [NSString stringWithFormat:@"%@wap/route/%@",BASE_WEBURL,self.museum.museum_id];
-//        WebViewController *vc = [WebViewController webControllerWithUrl:[NSString stringWithFormat:@"%@wap/route/%@",BASE_WEBURL,self.museum.museum_id]];
-////        vc.view.backgroundColor = [UIColor whiteColor];
-//        vc.webView.backgroundColor = [UIColor blackColor];
-//        [self.navigationController pushViewController:vc animated:YES];
-//    }];
 }
 
 

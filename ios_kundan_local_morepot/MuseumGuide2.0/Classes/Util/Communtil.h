@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UShareUI/UShareUI.h>
 
 
 @interface Communtil : NSObject

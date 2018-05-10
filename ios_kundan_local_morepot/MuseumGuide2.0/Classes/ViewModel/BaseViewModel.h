@@ -17,11 +17,5 @@
 
 @property (nonatomic,strong,readonly)RACCommand *exhibitInfoCmd;
 
-@property (nonatomic,strong,readonly)RACCommand *userInfoCmd;
-
-
-
-
-
 
 @end

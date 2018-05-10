@@ -40,7 +40,6 @@
     [[self.goBackBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         @strongify(self);
         if ([Communtil app_welcome] && IPHONE_DEVICE) {
-            [TalkingData trackEvent:@"云观博" label:@"跳过"];
             [[NSUserDefaults standardUserDefaults]setObject:@YES forKey:kAPPLICARION_WELCOME];
         }
         [self.navigationController popViewControllerAnimated:YES];

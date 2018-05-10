@@ -11,7 +11,7 @@
 #import "MBProgressHUD+Add.h"
 #import <WebKit/WebKit.h>
 
-@interface WebViewController ()<WKUIDelegate>
+@interface WebViewController ()
 @property (nonatomic,strong)NSString *url;
 @property (nonatomic,strong)NSString *html;
 
@@ -45,7 +45,6 @@
         conf.preferences = p;
         [conf.preferences setValue:@YES forKey:@"allowFileAccessFromFileURLs"];
         WKWebView *webView = [[WKWebView alloc]initWithFrame:CGRectZero configuration:conf];
-        webView.UIDelegate = self;
         webView.scrollView.bouncesZoom = NO;
         webView.scrollView.bounces = NO;
         [self.view addSubview:webView];
@@ -89,25 +88,9 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [HUD hideAnimated:YES];
         });
-    }else{
-        [self setBackTitle:@""];
-        if (self.newsMode) {
-            self.backBtn.backImg.image = [UIImage imageNamed:@"menu_back_o"];
-        }
     }
 }
 
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler{
-    
-}
-
-- (void)webView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString * _Nullable))completionHandler{
-    
-}
-
-- (void)webView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL))completionHandler{
-    
-}
 
 
 @end

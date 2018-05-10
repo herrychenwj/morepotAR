@@ -35,8 +35,7 @@
         @weakify(self);
         _mapSeachCmd =  [[RACCommand alloc]initWithEnabled:[self keyWordVerification] signalBlock:^RACSignal *(id input) {
             @strongify(self);
-            [TalkingData trackEvent:self.basicInfo.museum_name label:@"搜索事件" parameters:@{self.keyword?:@"":self.keyword?:@""}];
-            return [[[[ApiFactory tour_mapsearch:self.basicInfo.museum_id?:@""keywords:self.keyword?:@""] flattenMap:^RACStream *(id value) {
+            return [[[ApiFactory tour_mapsearch:self.basicInfo.museum_id?:@""keywords:self.keyword?:@""] flattenMap:^RACStream *(id value) {
                 return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                     NSArray *res = [MapSearchModel mj_objectArrayWithKeyValuesArray:[value objectForKey:@"res"]];
                     if (res.count > 0) {
@@ -47,7 +46,7 @@
                     }
                     return nil;
                 }];
-            }]talkingDataTracking:@"搜索事件" label:self.basicInfo.museum_name params:@{self.keyword?:@"":self.keyword?:@""}]showErrorMsgTo:self.hudView];
+            }] showErrorMsgTo:self.hudView];
         }];
     }
     return _mapSeachCmd;
@@ -58,8 +57,7 @@
         @weakify(self);
         _homeSeachCmd = [[RACCommand alloc]initWithEnabled:[self keyWordVerification] signalBlock:^RACSignal *(id input) {
             @strongify(self);
-            return [[[[ApiFactory tour_homesearch:self.basicInfo.museum_id?:@""keywords:self.keyword?:@""] flattenMap:^RACStream *(id value) {
-                [TalkingData trackEvent:self.basicInfo.museum_name label:@"搜索事件" parameters:@{self.keyword?:@"":self.keyword?:@""}];
+            return [[[ApiFactory tour_homesearch:self.basicInfo.museum_id?:@""keywords:self.keyword?:@""] flattenMap:^RACStream *(id value) {
                 return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
                     NSArray *res = [MapSearchModel mj_objectArrayWithKeyValuesArray:value];
                     if (res.count > 0) {
@@ -70,7 +68,7 @@
                     }
                     return nil;
                 }];
-            }]talkingDataTracking:@"搜索事件" label:self.basicInfo.museum_name params:@{self.keyword?:@"":self.keyword?:@""}]showErrorMsgTo:self.hudView];
+            }] showErrorMsgTo:self.hudView];
         }];
     }
     return _homeSeachCmd;

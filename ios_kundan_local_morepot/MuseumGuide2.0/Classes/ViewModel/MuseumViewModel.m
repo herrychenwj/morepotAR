@@ -7,7 +7,6 @@
 //
 
 #import "MuseumViewModel.h"
-#import "DownloadFactory.h"
 
 @interface MuseumViewModel ()
 @property (nonatomic,strong,readwrite)RACCommand *audioReadyCmd;
@@ -26,7 +25,6 @@
                 [subscriber sendCompleted];
                 return nil;
             }];
-//            return [[DownloadFactory cacheMP3WithUrl:self.detailInfo.audio.cloudPath museum_id:self.basicInfo.museum_id]showErrorMsgTo:self.hudView];
         }];
     }
     return _audioReadyCmd;

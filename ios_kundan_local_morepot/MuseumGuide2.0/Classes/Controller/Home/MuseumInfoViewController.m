@@ -14,12 +14,10 @@
 #import "MuseumInfoTextView.h"
 #import "MuseumInfoViewController.h"
 #import "MuseumViewModel.h"
-#import "ShareViewController.h"
 #import "YYLabel.h"
 #import "ZLPhotoPickerBrowserPhoto.h"
 #import "ZLPhotoPickerBrowserViewController.h"
 #import <MJExtension/MJExtension.h>
-#import <UShareUI/UShareUI.h>
 
 @interface MuseumInfoViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)MuseumInfoHeaderView *headerView;
@@ -177,9 +175,8 @@ static NSString *const cellID = @"MuseumInfoTextTableViewCell";
         isFirstPlay = NO;
     }];
     //音乐播放按钮事件
-    [[[self.headerView.playBtn rac_signalForControlEvents:UIControlEventTouchUpInside] talkingDataTracking:@"展馆语音" label:self.detailInfo.cn_name params:nil]subscribeNext:^(UIButton *x) {
+    [[self.headerView.playBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *x) {
         @strongify(self);
-        [TalkingData trackEvent:self.detailInfo.cn_name label:@"展馆语音"];
         if (!x.selected && isFirstPlay) {
             //如果第一次播放 进行播放准备
             [viewModel.audioReadyCmd execute:nil];
@@ -192,17 +189,6 @@ static NSString *const cellID = @"MuseumInfoTextTableViewCell";
         x.selected = !x.selected;
     }];
     
-    
-    //分享按钮点击事件
-    [[[self.headerView.shareBtn rac_signalForControlEvents:UIControlEventTouchUpInside] autoPlaySound]subscribeNext:^(id x) {
-        @strongify(self);
-        UMShareWebpageObject *obj = [UMShareWebpageObject shareObjectWithTitle:self.detailInfo.cn_name descr:self.detailInfo.mdescription thumImage:self.bascInfo.home_logourl.cloudPath];
-        obj.webpageUrl = self.detailInfo.share.cloudPath;
-        ShareViewController *vc = [ShareViewController shareWithObject:obj];
-        vc.trackLabel = self.bascInfo.museum_name;
-        vc.shareObjType = @"展馆";
-        [self presentTransparentController:vc animated:YES];
-    }];
     
     //图片点击事件
     self.headerView.bannerView.clickItemOperationBlock = ^(NSInteger currentIndex){

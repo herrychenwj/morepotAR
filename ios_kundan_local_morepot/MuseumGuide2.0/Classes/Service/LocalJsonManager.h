@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-static NSString *const zipName = @"suzhou_museum.zip";
-static NSString *const jsonsName = @"local_api.zip";
 static NSString *const exhibitionPath = @"local_api/exhibit";
 static NSString *const commentPath = @"local_api/comment";
 static NSString *const museumPath = @"local_api";
@@ -29,6 +27,6 @@ static NSString *const resourcePath = @"local_api";
 + (RACSignal *)rac_getlocalApi:(NSString *)exhibit_id folder:(NSString *)folderName;
 
 
-+ (void)unzipJsonswithComplete:(void(^)())complete;
+//+ (void)unzipJsonswithComplete:(void(^)())complete;
 
 @end

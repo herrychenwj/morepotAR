@@ -12,7 +12,6 @@
 
 @interface RACSignal(Api)
 
-- (RACSignal *)talkingDataTracking:(NSString *_Nonnull)event label:(NSString *_Nullable)label params:(id _Nullable)params;
 
 - (RACSignal *_Nullable)checkData;
 

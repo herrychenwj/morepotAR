@@ -16,7 +16,6 @@
 
 @property (nonatomic,assign)BOOL D3;
 @property (nonatomic,strong)WKWebView *webView;
-@property (nonatomic,assign)BOOL newsMode;
 
 
 @end

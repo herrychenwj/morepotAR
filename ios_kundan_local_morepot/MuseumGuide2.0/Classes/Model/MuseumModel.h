@@ -7,16 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
-#import <BaiduMapAPI_Location/BMKLocationComponent.h>//引入定位功能所有的头文件
 @class MuseumPayment;
 
 @interface MuseumModel : NSObject
 
 
 - (BOOL)isEqualToMuseum:(MuseumModel *)object;
-
-- (void)calculatethedistancebetween:(BMKUserLocation *)curLocation;
 
 
 @property (nonatomic,assign)BOOL taobaoke;

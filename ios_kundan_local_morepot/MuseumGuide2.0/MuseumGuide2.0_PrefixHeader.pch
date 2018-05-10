@@ -40,7 +40,6 @@ static const int ddLogLevel = DDLogLevelWarning;
 #import "NSString+URL.h"
 #import "NSErrorHelper.h"
 #import "Communtil.h"
-#import "TalkingData.h"
 #import "UIViewController+Modal.h"
 #import "TXSakuraKit.h"
 #import "FileUtil.h"
