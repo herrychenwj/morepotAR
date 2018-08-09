@@ -219,7 +219,6 @@
 		E35A914120A4333700DFF6DB /* MuBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E35A913F20A4333600DFF6DB /* MuBackButton.m */; };
 		E35A914420A43AFF00DFF6DB /* EnshrineTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E35A914220A43AFE00DFF6DB /* EnshrineTableViewCell.m */; };
 		E35A914720A43B6800DFF6DB /* ARHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35A914520A43B6800DFF6DB /* ARHomeView.m */; };
-		E35A914920A4412200DFF6DB /* localApi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E35A914820A4412200DFF6DB /* localApi.bundle */; };
 		E35A914A20A4463700DFF6DB /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F8D78A1E60656600C637B2 /* libxml2.tbd */; };
 		E35A914B20A4469300DFF6DB /* Pods_MuseumGuide2_0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11F123E5671756C85A2B6DBC /* Pods_MuseumGuide2_0.framework */; };
 		E35A914E20A446E800DFF6DB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E37E4C631ED9128700CFEC45 /* libc++.tbd */; };
@@ -285,6 +284,14 @@
 		E3CA8AD51E67E675000F09A2 /* MapExhibitCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA8AD41E67E675000F09A2 /* MapExhibitCollectionViewCell.m */; };
 		E3CA8ADA1E67FCA9000F09A2 /* MuItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CA8AD91E67FCA9000F09A2 /* MuItemButton.m */; };
 		E3CDCD0A1E668BE30030AF8D /* MuseumGuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3CDCD091E668BE30030AF8D /* MuseumGuideViewController.m */; };
+		E3DA196B20F5CAF600FFA1A7 /* localApi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E3DA196A20F5CAF600FFA1A7 /* localApi.bundle */; };
+		E3DA196F20F9892E00FFA1A7 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E3DA196E20F9892E00FFA1A7 /* logo.png */; };
+		E3DA197120FADE4700FFA1A7 /* gshz.png in Resources */ = {isa = PBXBuildFile; fileRef = E3DA197020FADE4700FFA1A7 /* gshz.png */; };
+		E3DA197320FADE5300FFA1A7 /* bg-x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3DA197220FADE5200FFA1A7 /* bg-x.jpg */; };
+		E3DA197520FADE5A00FFA1A7 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3DA197420FADE5A00FFA1A7 /* bg.jpg */; };
+		E3DA197720FAEBA600FFA1A7 /* phone_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E3DA197620FAEBA600FFA1A7 /* phone_bg.jpg */; };
+		E3DA197D20FB080300FFA1A7 /* CURExhibitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DA197C20FB080200FFA1A7 /* CURExhibitModel.m */; };
+		E3DA198020FB08AA00FFA1A7 /* UIImage+Developer.m in Sources */ = {isa = PBXBuildFile; fileRef = E3DA197F20FB08AA00FFA1A7 /* UIImage+Developer.m */; };
 		E3F182DC1F9F2B89007D744E /* HorizontalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F182DB1F9F2B89007D744E /* HorizontalButton.m */; };
 		E3F8D7811E60653F00C637B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F8D7801E60653F00C637B2 /* UIKit.framework */; };
 		E3F8D7831E60654900C637B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3F8D7821E60654900C637B2 /* CoreGraphics.framework */; };
@@ -770,7 +777,6 @@
 		E35A914320A43AFF00DFF6DB /* EnshrineTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnshrineTableViewCell.h; sourceTree = "<group>"; };
 		E35A914520A43B6800DFF6DB /* ARHomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARHomeView.m; sourceTree = "<group>"; };
 		E35A914620A43B6800DFF6DB /* ARHomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARHomeView.h; sourceTree = "<group>"; };
-		E35A914820A4412200DFF6DB /* localApi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = localApi.bundle; sourceTree = "<group>"; };
 		E35C94101EE52BEE00F671BD /* SearchCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCollectionViewCell.h; sourceTree = "<group>"; };
 		E35C94111EE52BEE00F671BD /* SearchCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCollectionViewCell.m; sourceTree = "<group>"; };
 		E35C94131EE5357600F671BD /* SearchHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchHeaderCollectionReusableView.h; sourceTree = "<group>"; };
@@ -903,6 +909,16 @@
 		E3CA8AD91E67FCA9000F09A2 /* MuItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuItemButton.m; sourceTree = "<group>"; };
 		E3CDCD081E668BE30030AF8D /* MuseumGuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MuseumGuideViewController.h; sourceTree = "<group>"; };
 		E3CDCD091E668BE30030AF8D /* MuseumGuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MuseumGuideViewController.m; sourceTree = "<group>"; };
+		E3DA196A20F5CAF600FFA1A7 /* localApi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = localApi.bundle; sourceTree = "<group>"; };
+		E3DA196E20F9892E00FFA1A7 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		E3DA197020FADE4700FFA1A7 /* gshz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gshz.png; sourceTree = "<group>"; };
+		E3DA197220FADE5200FFA1A7 /* bg-x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg-x.jpg"; sourceTree = "<group>"; };
+		E3DA197420FADE5A00FFA1A7 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = "<group>"; };
+		E3DA197620FAEBA600FFA1A7 /* phone_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = phone_bg.jpg; sourceTree = "<group>"; };
+		E3DA197B20FB080200FFA1A7 /* CURExhibitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CURExhibitModel.h; sourceTree = "<group>"; };
+		E3DA197C20FB080200FFA1A7 /* CURExhibitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CURExhibitModel.m; sourceTree = "<group>"; };
+		E3DA197E20FB08A900FFA1A7 /* UIImage+Developer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Developer.h"; path = "../../../../../ios_yunguanbo_kudan/MuseumGuide2.0/Classes/Util/UIImage+Developer.h"; sourceTree = "<group>"; };
+		E3DA197F20FB08AA00FFA1A7 /* UIImage+Developer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Developer.m"; path = "../../../../../ios_yunguanbo_kudan/MuseumGuide2.0/Classes/Util/UIImage+Developer.m"; sourceTree = "<group>"; };
 		E3F182DA1F9F2B89007D744E /* HorizontalButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HorizontalButton.h; sourceTree = "<group>"; };
 		E3F182DB1F9F2B89007D744E /* HorizontalButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HorizontalButton.m; sourceTree = "<group>"; };
 		E3F8D7801E60653F00C637B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -1781,6 +1797,8 @@
 		E3F8D7E41E63B9CE00C637B2 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				E3DA197E20FB08A900FFA1A7 /* UIImage+Developer.h */,
+				E3DA197F20FB08AA00FFA1A7 /* UIImage+Developer.m */,
 				E36242C21F61444F00A7B612 /* Mp3Player.h */,
 				E36242C31F61444F00A7B612 /* Mp3Player.m */,
 				E3F8D80B1E63B9FC00C637B2 /* NSErrorHelper.h */,
@@ -1912,6 +1930,11 @@
 		E3F9C59D1E602DCD0037698F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3DA197620FAEBA600FFA1A7 /* phone_bg.jpg */,
+				E3DA197420FADE5A00FFA1A7 /* bg.jpg */,
+				E3DA197220FADE5200FFA1A7 /* bg-x.jpg */,
+				E3DA197020FADE4700FFA1A7 /* gshz.png */,
+				E3DA196E20F9892E00FFA1A7 /* logo.png */,
 				E30C17101E71048700F2F729 /* MuseumGuide2.0.entitlements */,
 				E3F9C5AC1E602DCD0037698F /* Assets.xcassets */,
 				E3F9C5B11E602DCD0037698F /* Info.plist */,
@@ -1922,7 +1945,7 @@
 				E31E818B1F94526900DF277D /* Localizable_cn.json */,
 				E31E818D1F94528200DF277D /* Localizable_en.json */,
 				E3BBA7FB1FCFE92B00BDF84B /* Launch Screen.storyboard */,
-				E35A914820A4412200DFF6DB /* localApi.bundle */,
+				E3DA196A20F5CAF600FFA1A7 /* localApi.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1974,6 +1997,8 @@
 		E3F9C5D61E602E150037698F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E3DA197B20FB080200FFA1A7 /* CURExhibitModel.h */,
+				E3DA197C20FB080200FFA1A7 /* CURExhibitModel.m */,
 				E3F8D8EE1E6426DF00C637B2 /* MuseumInfoModel.h */,
 				E3F8D8EF1E6426DF00C637B2 /* MuseumInfoModel.m */,
 				E30C60BB1E7798E800B91A38 /* MuseumModel.h */,
@@ -2203,7 +2228,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DA197720FAEBA600FFA1A7 /* phone_bg.jpg in Resources */,
+				E3DA196F20F9892E00FFA1A7 /* logo.png in Resources */,
 				E31ED2391EEF8EA600E8AD87 /* callout_left@2x.png in Resources */,
+				E3DA197320FADE5300FFA1A7 /* bg-x.jpg in Resources */,
 				E3298B611E88D98600B5DF06 /* disapper_sound.mp3 in Resources */,
 				E31ED2381EEF8EA600E8AD87 /* callout_left.png in Resources */,
 				E320C70B1F459C14003F4DF2 /* 0562.mp4 in Resources */,
@@ -2217,9 +2245,9 @@
 				E31ED2341EEF8EA600E8AD87 /* callout_anchor.png in Resources */,
 				E31ED2431EEF8EA600E8AD87 /* pinPurple@2x.png in Resources */,
 				E30C16FD1E6FE14700F2F729 /* ZFPlayer.bundle in Resources */,
-				E35A914920A4412200DFF6DB /* localApi.bundle in Resources */,
 				E3298B601E88D98600B5DF06 /* click_sound.mp3 in Resources */,
 				E31745341E7BD77F00AA3A9D /* Localizable.strings in Resources */,
+				E3DA197520FADE5A00FFA1A7 /* bg.jpg in Resources */,
 				E3F9C5AD1E602DCD0037698F /* Assets.xcassets in Resources */,
 				E31E818C1F94526900DF277D /* Localizable_cn.json in Resources */,
 				E31ED2421EEF8EA600E8AD87 /* pinPurple.png in Resources */,
@@ -2227,6 +2255,8 @@
 				E31ED2351EEF8EA600E8AD87 /* callout_anchor@2x.png in Resources */,
 				E31ED2371EEF8EA600E8AD87 /* callout_bg@2x.png in Resources */,
 				E31ED2451EEF8EA600E8AD87 /* pinRed@2x.png in Resources */,
+				E3DA196B20F5CAF600FFA1A7 /* localApi.bundle in Resources */,
+				E3DA197120FADE4700FFA1A7 /* gshz.png in Resources */,
 				E31ED2441EEF8EA600E8AD87 /* pinRed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2391,6 +2421,7 @@
 				E30C18D91E72532600F2F729 /* SVGTransform.m in Sources */,
 				E3F8D81D1E63BB4200C637B2 /* BaseViewController.m in Sources */,
 				E30C17941E712E9500F2F729 /* YYTextRunDelegate.m in Sources */,
+				E3DA197D20FB080300FFA1A7 /* CURExhibitModel.m in Sources */,
 				E30C18E31E72532600F2F729 /* SVGImageElement.m in Sources */,
 				E30C18F81E72532600F2F729 /* SVGKParserSVG.m in Sources */,
 				E3CA8AD51E67E675000F09A2 /* MapExhibitCollectionViewCell.m in Sources */,
@@ -2433,6 +2464,7 @@
 				E30C18DB1E72532600F2F729 /* BaseClassForAllSVGBasicShapes.m in Sources */,
 				E35A914720A43B6800DFF6DB /* ARHomeView.m in Sources */,
 				E30C18DE1E72532600F2F729 /* SVGElement.m in Sources */,
+				E3DA198020FB08AA00FFA1A7 /* UIImage+Developer.m in Sources */,
 				E36BE1C01E6E66D7006AA1EF /* ZLPhotoAssets.m in Sources */,
 				E3CA8AD21E67CEFB000F09A2 /* MapExhibitView.m in Sources */,
 				E30C19451E7272C700F2F729 /* FileUtil.m in Sources */,
@@ -2711,7 +2743,7 @@
 			baseConfigurationReference = 92F3B8E0AB326042CFAAB4CC /* Pods-MuseumGuide2.0.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2797,7 +2829,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2810,7 +2842,7 @@
 			baseConfigurationReference = 1176A80D18E08F3E4690BA26 /* Pods-MuseumGuide2.0.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Suzhou Heyunguanbo Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2896,7 +2928,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

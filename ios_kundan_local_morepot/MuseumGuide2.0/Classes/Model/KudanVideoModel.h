@@ -18,6 +18,7 @@
 @property (nonatomic,assign)float z;
 @property (nonatomic,assign)float scale;
 @property (nonatomic,assign)BOOL isfollow;
+@property (nonatomic,assign)BOOL takephoto;
 //@property (nonatomic,copy)NSString *imgname;
 //@property (nonatomic,assign)float imgX;
 //@property (nonatomic,assign)float imgY;

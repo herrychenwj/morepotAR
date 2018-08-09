@@ -60,6 +60,7 @@
 @property (nonatomic,assign)BOOL canEditAR;
 
 @property (nonatomic,assign)BOOL playVideo;
+@property (nonatomic,assign)BOOL takePhoto;
 
 
 - (BOOL)isARVideoWithExhibitID:(NSString *)exhibit_id;

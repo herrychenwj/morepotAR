@@ -27,7 +27,7 @@
     [super viewDidLoad];
     KudanARViewController *arVC = [[KudanARViewController alloc]init];
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"localApi" ofType:@"bundle"];
-    arVC.resourcePath = [NSString stringWithFormat:@"%@/ahbwysjy_museum/",bundlePath];
+    arVC.resourcePath = [NSString stringWithFormat:@"%@/resource/",bundlePath];
     arVC.view.frame = self.view.bounds;
     [self.view addSubview:arVC.view];
     [self.view sendSubviewToBack:arVC.view];

@@ -86,7 +86,12 @@ static NSString *const reusableID = @"SearchHeaderCollectionReusableView";
         ExhibitViewController *vc = [ExhibitViewController exhibitControllerWithInfo:x];
 //        vc.museumInfo = self.museum;
 //        vc.goodsAry = self.goodsAry;
-        vc.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"search_back"].CGImage);
+        if (IPAD_DEVICE) {
+            vc.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"bg.jpg"].CGImage);
+        }else {
+            vc.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"phone_bg.jpg"].CGImage);
+        }
+        
 //        vc.refreshData = ^(){
 //            @strongify(self);
 //            [self.viewModel.allExhibitCmd execute:nil];
@@ -213,7 +218,12 @@ static NSString *const reusableID = @"SearchHeaderCollectionReusableView";
 
 #pragma mark InitUI
 - (void)initUI{
-    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"search_back"].CGImage);
+    if (IPAD_DEVICE) {
+    self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"bg-x.jpg"].CGImage);
+    }else {
+        self.view.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:@"phone_bg.jpg"].CGImage);
+    }
+
     [self setBackTitle:@"AR"];
     _tableView = ({
         UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectZero];

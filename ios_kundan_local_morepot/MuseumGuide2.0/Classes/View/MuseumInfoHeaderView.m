@@ -40,6 +40,8 @@
             UIButton *btn = [[UIButton alloc]initWithFrame:CGRectZero];
             [btn setImage:[UIImage imageNamed:@"sound"] forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"play2"] forState:UIControlStateSelected];
+            btn.userInteractionEnabled = NO;
+            btn.enabled = NO;
             [self addSubview:btn];
             btn;
         });
@@ -47,6 +49,8 @@
             UIButton *btn = [[UIButton alloc]initWithFrame:CGRectZero];
             [btn setImage:[UIImage imageNamed:@"share"] forState:UIControlStateNormal];
             [btn setImage:[UIImage imageNamed:@"share"] forState:UIControlStateHighlighted];
+            btn.userInteractionEnabled = NO;
+            btn.enabled = NO;
             [self addSubview:btn];
             btn;
         });

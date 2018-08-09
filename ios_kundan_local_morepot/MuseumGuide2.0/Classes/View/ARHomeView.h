@@ -20,6 +20,8 @@
 @property (nonatomic,strong)VerticalButton *exhibitBtn;
 @property (nonatomic,strong)HorizontalButton *enExhibitBtn;
 @property (nonatomic,strong)HomeFooterView *footerView;
+@property (nonatomic,strong)UIButton *takePhotoBtn;
+
 @property (nonatomic,strong)UIButton *closeVideoBtn;
 
 - (void)hideAllElement;

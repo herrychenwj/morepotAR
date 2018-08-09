@@ -44,6 +44,7 @@
 //        ARAlphaVideoNode *nodeV;
 //        ARImageNode *nodeImg;
         ARAlphaVideoNode *nodeV = (ARAlphaVideoNode *)[self.cameraView.contentViewPort.camera findChildWithName:self.curTrackable.name];
+        self.takePhoto = vodeX.takephoto;
         if (!nodeV) {
             nodeV = (ARAlphaVideoNode *)[self.curTrackable.world findChildWithName:self.curTrackable.name];
         }
@@ -177,7 +178,7 @@
         }
     });
     [self hiddenVideo];
-
+    self.takePhoto = NO;
 }
 
 - (void)onTracked:(ARImageTrackable *)x{
@@ -267,6 +268,7 @@
             [nodeV.videoTexture reset];
 //            [nodeImg setVisible:NO];
             [nodeV setVisible:NO];
+            self.takePhoto = NO;
             self.playVideo = NO;
             self.curTrackable = nil;
         }

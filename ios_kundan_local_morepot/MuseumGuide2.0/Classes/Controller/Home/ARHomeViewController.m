@@ -15,7 +15,7 @@
 #import "WelcomeVideoViewController.h"
 #import "KudanARViewController.h"
 #import "RootTarBarController.h"
-
+#import "UIImage+Developer.h"
 #import "MuseumInfoModel.h"
 #import "ARHomeViewModel.h"
 #import "ExhibitInfoModel.h"
@@ -40,6 +40,8 @@
 @property (nonatomic,strong)NSString *cur_exhibit_id;
 @property (nonatomic,assign)BOOL hideWarning; //手动显示和隐藏警示标签
 @property (nonatomic,strong)MBProgressHUD *hud;
+@property (nonatomic,strong)UIImage *shareImg;
+
 @end
 
 static BOOL is_loading = NO;
@@ -58,8 +60,8 @@ static BOOL is_loading = NO;
     RootTarBarController *tabVC = (RootTarBarController *)self.tabBarController;
     self.arVC = tabVC.arVC;
     [super viewDidLoad];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"logo_1498016467"] forState:UIControlStateNormal];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"logo_1498016467"] forState:UIControlStateHighlighted];
+    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"gshz"] forState:UIControlStateNormal];
+    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"gshz"] forState:UIControlStateHighlighted];
 }
 
 - (MBProgressHUD *)hud{
@@ -112,6 +114,15 @@ static BOOL is_loading = NO;
     @weakify(self);
     self.viewModel = [[ARHomeViewModel alloc]initWithHUDShowView:self.view];
     RAC(self.viewModel,basicInfo) = RACObserve(self, museum);
+    [RACObserve(self.arVC, takePhoto) subscribeNext:^(NSNumber *x) {
+        @strongify(self);
+        if ([x boolValue]) {
+            self.mainView.takePhotoBtn.hidden = NO;
+            [self.mainView hideLogoAndFoot];
+        }else{
+            self.mainView.takePhotoBtn.hidden = YES;
+        }
+    }];
     [self.viewModel.loadInfoCmd.executionSignals.switchToLatest subscribeNext:^(MuseumInfoModel *x) {
         @strongify(self);
         MuseumInfoViewController *vc = [[MuseumInfoViewController alloc]initWithBasicInfo:self.museum detailInfo:x];
@@ -285,6 +296,17 @@ static BOOL is_loading = NO;
         }
     }];
     
+    [[self.mainView.takePhotoBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
+        @strongify(self);
+        self.shareImg = nil;
+        dispatch_queue_t globalQueue=dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+        dispatch_sync(globalQueue, ^{
+            UIImage *img = [self.arVC.cameraView screenshot];
+            self.shareImg = [img addMsakImage:[UIImage imageNamed:@"sharelogo.png"]];
+                UIImageWriteToSavedPhotosAlbum(_shareImg, self, nil, NULL);
+            [MBProgressHUD showMessag:@"拍摄成功，已存到相册" toView:self.view];
+        });
+    }];
     [[self rac_signalForSelector:@selector(kudanLostTrack) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
         self.cur_exhibit_id = nil;

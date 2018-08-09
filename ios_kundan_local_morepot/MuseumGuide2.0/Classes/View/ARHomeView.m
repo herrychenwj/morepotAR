@@ -58,6 +58,17 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
+    [self.takePhotoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(IPHONE_DEVICE?@70:@80);
+        make.height.equalTo(IPHONE_DEVICE?@90:@100);
+        if (IPHONE_DEVICE) {
+            make.centerX.equalTo(self);
+        }
+        else{
+            make.right.equalTo(self).offset(-150);
+        }
+        make.bottom.equalTo(self).offset(-25);
+    }];
     
     [self.closeVideoBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self).offset(-180);
@@ -99,6 +110,13 @@
 
 - (void)initUI{
     self.backgroundColor = [UIColor clearColor];
+    _takePhotoBtn = ({
+        UIButton *takePhotoBtn = [[UIButton alloc]initWithFrame:CGRectZero];
+        [takePhotoBtn setBackgroundImage:[UIImage imageNamed:@"tabkephotopic"] forState:UIControlStateNormal];
+        takePhotoBtn.hidden = YES;
+        [self addSubview:takePhotoBtn];
+        takePhotoBtn;
+    });
     _exhibitBtn = ({
         VerticalButton *btn = [[VerticalButton alloc]initWithFrame:CGRectZero];
         btn.userInteractionEnabled = NO;
