@@ -220,6 +220,7 @@
                 }]array].count > 0;
                 if (ids && ids.count>0) {
                     [self.delegate kudanOnTrack:exhibit_id Exhibition_names:ids hasARVideo:hasVideo enTitle:enTitle];
+                    return;
                 }
                 [self.delegate kudanOnTrack:exhibit_id Exhibition_name:showName hasARVideo:hasVideo enTitle:enTitle];
             }

@@ -38,14 +38,6 @@
             [self addSubview:btn];
             btn;
         });
-//        _searchBtn = ({
-//            MuItemButton *btn = [[MuItemButton alloc]initWithFrame:CGRectZero];
-//            btn.itemLB.font = [UIFont systemFontOfSize:IPHONE_DEVICE?12:15];
-//            btn.itemLB.sakura.text(@"search");
-//            btn.itemIcon.image = [UIImage imageNamed:@"search"];
-//            [self addSubview:btn];
-//            btn;
-//        });
         _rootBtn = ({
             MuItemButton *btn = [[MuItemButton alloc]initWithFrame:CGRectZero];
             btn.itemLB.font = [UIFont systemFontOfSize:IPHONE_DEVICE?11:13];
@@ -55,7 +47,7 @@
             btn;
         });
     }
-    return self;
+    return nil;
 }
 
 

@@ -15,7 +15,7 @@
 #import "WelcomeVideoViewController.h"
 #import "KudanARViewController.h"
 #import "RootTarBarController.h"
-
+#import "WebViewController.h"
 #import "MuseumInfoModel.h"
 #import "ARHomeViewModel.h"
 #import "ExhibitInfoModel.h"
@@ -255,23 +255,35 @@ static BOOL is_loading = NO;
         if (!self.cur_exhibit_id) {
             [Communtil playExhitbitSound];
             self.cur_exhibit_id = x[0];
-            BOOL hasVideo = [x[2] boolValue];
-            BOOL enTitle = [x[3] boolValue];
-            [self.mainView showExhibitName:x[1] en:enTitle];
-            NSString *copyID = self.cur_exhibit_id;
-            if (self.cur_exhibit_id&&hasVideo) { //播放AR视频
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.mainView hideAllElement];
-                    [self.arVC showARVideo:copyID];
-                    if (self.arVC.playVideo) {
-                        self.mainView.closeVideoBtn.hidden = NO;
-                    }
-                });
-            }else if(self.cur_exhibit_id&&!hasVideo){
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.viewModel.exhibitInfoCmd execute:copyID?:@""];
-                });
-            }
+           WebViewController *vc = [WebViewController webControllerWithHtml:self.cur_exhibit_id];
+            [[vc rac_signalForSelector:@selector(viewWillAppear:)]subscribeNext:^(id x) {
+                @strongify(self);
+                self.hideWarning = YES;
+            }];
+            [[vc rac_signalForSelector:@selector(viewWillDisappear:)]subscribeNext:^(id x) {
+                @strongify(self);
+                self.hideWarning = NO;
+            }];
+            vc.skipType = VCSkipTypePresent;
+            vc.D3 = YES;
+            [self presentTransparentController:vc];
+//            BOOL hasVideo = [x[2] boolValue];
+//            BOOL enTitle = [x[3] boolValue];
+//            [self.mainView showExhibitName:x[1] en:enTitle];
+//            NSString *copyID = self.cur_exhibit_id;
+//            if (self.cur_exhibit_id&&hasVideo) { //播放AR视频
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self.mainView hideAllElement];
+//                    [self.arVC showARVideo:copyID];
+//                    if (self.arVC.playVideo) {
+//                        self.mainView.closeVideoBtn.hidden = NO;
+//                    }
+//                });
+//            }else if(self.cur_exhibit_id&&!hasVideo){
+//                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//                    [self.viewModel.exhibitInfoCmd execute:copyID?:@""];
+//                });
+//            }
         }
         is_loading = NO;
     }];

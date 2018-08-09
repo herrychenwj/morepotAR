@@ -139,7 +139,7 @@
     _logoBtn = ({
         UIButton *btn = [[UIButton alloc]initWithFrame:CGRectZero];
         [self addSubview:btn];
-        btn;
+        nil;
     });
     
 
