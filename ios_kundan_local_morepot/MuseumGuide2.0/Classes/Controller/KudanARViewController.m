@@ -27,11 +27,6 @@
 
 @implementation KudanARViewController
 
-//- (void)viewDidLoad{
-//    [super viewDidLoad];
-//    AppDelegate *del = [UIApplication sharedApplication].delegate;
-//    self.resourcePath = del.arPath;
-//}
 
 - (void)showARVideo:(NSString *)exhibition_id{
     if (self.playVideo) {return;}
@@ -108,7 +103,6 @@
     alphaVideoNode.position = nodePosition;
     alphaVideoNode.name = video.name;
     alphaVideoNode.videoTexture.delegate = self;
-    [alphaVideoNode addTouchTarget:self withAction:@selector(videoWasTouched:)];
     [alphaVideoNode scaleByUniform:video.scale];
     [alphaVideoNode setVisible:YES];
     [alphaVideoNode.videoTexture play];
@@ -177,13 +171,11 @@
         }
     });
     [self hiddenVideo];
-
 }
 
 - (void)onTracked:(ARImageTrackable *)x{
     if (self.playVideo) {
         return;
-        
     }
     dispatch_async(dispatch_get_main_queue(), ^{
         if (!self.curTrackable) {
@@ -234,18 +226,6 @@
     return hasVideo;
 }
 
-//- (void)setResourcePath:(NSString *)resourcePath{
-//    if (_resourcePath != resourcePath) {
-//        for (ARNode *node in self.videoNodeAry) {
-//            [node remove];
-//        }
-//        _resourcePath = resourcePath;
-//        self.videoAry = nil;
-//        self.namesAry = nil;
-//        self.videoNodeAry = nil;
-//        [self setupContent];
-//    }
-//}
 
 
 
@@ -256,16 +236,12 @@
         if (video.count > 0) { //
             KudanVideoModel *vodeX = [video firstObject];
             ARAlphaVideoNode *nodeV;
-//            ARImageNode *nodeImg;
             if (vodeX.isfollow) {
                 nodeV = (ARAlphaVideoNode *)[self.curTrackable.world findChildWithName:self.curTrackable.name];
             }else{
                 nodeV = (ARAlphaVideoNode *)[self.cameraView.contentViewPort.camera findChildWithName:self.curTrackable.name];
-//                NSString *trackName = [NSString stringWithFormat:@"%@-image",self.curTrackable.name];
-//                nodeImg =  (ARImageNode *)[self.cameraView.contentViewPort.camera findChildWithName:trackName];
             }
             [nodeV.videoTexture reset];
-//            [nodeImg setVisible:NO];
             [nodeV setVisible:NO];
             self.playVideo = NO;
             self.curTrackable = nil;

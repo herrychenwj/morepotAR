@@ -226,6 +226,14 @@
 		E35C94121EE52BEE00F671BD /* SearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E35C94111EE52BEE00F671BD /* SearchCollectionViewCell.m */; };
 		E35C94151EE5357600F671BD /* SearchHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E35C94141EE5357600F671BD /* SearchHeaderCollectionReusableView.m */; };
 		E35C94181EE535B400F671BD /* SearchAllModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E35C94171EE535B400F671BD /* SearchAllModel.m */; };
+		E36021BE213F725C006AAD5D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3A575F01E81012700D871A3 /* OpenGLES.framework */; };
+		E36021C0213F72E0006AAD5D /* easyar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E36021BF213F72E0006AAD5D /* easyar.framework */; };
+		E36021C3213F7311006AAD5D /* EasyARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021C2213F7310006AAD5D /* EasyARViewController.m */; };
+		E36021CF213F734F006AAD5D /* VideoRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021CA213F734F006AAD5D /* VideoRenderer.m */; };
+		E36021D0213F734F006AAD5D /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021CB213F734F006AAD5D /* OpenGLView.m */; };
+		E36021D1213F734F006AAD5D /* helloar.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021CC213F734F006AAD5D /* helloar.m */; };
+		E36021D2213F734F006AAD5D /* BoxRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021CD213F734F006AAD5D /* BoxRenderer.m */; };
+		E36021D3213F734F006AAD5D /* ARVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = E36021CE213F734F006AAD5D /* ARVideo.m */; };
 		E36242C41F61444F00A7B612 /* Mp3Player.m in Sources */ = {isa = PBXBuildFile; fileRef = E36242C31F61444F00A7B612 /* Mp3Player.m */; };
 		E36242F01F67C49500A7B612 /* FileUtil+Museum.m in Sources */ = {isa = PBXBuildFile; fileRef = E36242EF1F67C49500A7B612 /* FileUtil+Museum.m */; };
 		E36BE1B21E6E66D7006AA1EF /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = E36BE1721E6E66D7006AA1EF /* UIImage+ZLPhotoLib.m */; };
@@ -777,6 +785,19 @@
 		E35C94141EE5357600F671BD /* SearchHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchHeaderCollectionReusableView.m; sourceTree = "<group>"; };
 		E35C94161EE535B400F671BD /* SearchAllModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchAllModel.h; sourceTree = "<group>"; };
 		E35C94171EE535B400F671BD /* SearchAllModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchAllModel.m; sourceTree = "<group>"; };
+		E36021BF213F72E0006AAD5D /* easyar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = easyar.framework; sourceTree = "<group>"; };
+		E36021C1213F7310006AAD5D /* EasyARViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyARViewController.h; sourceTree = "<group>"; };
+		E36021C2213F7310006AAD5D /* EasyARViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyARViewController.m; sourceTree = "<group>"; };
+		E36021C5213F734F006AAD5D /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		E36021C6213F734F006AAD5D /* helloar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helloar.h; sourceTree = "<group>"; };
+		E36021C7213F734F006AAD5D /* VideoRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoRenderer.h; sourceTree = "<group>"; };
+		E36021C8213F734F006AAD5D /* ARVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARVideo.h; sourceTree = "<group>"; };
+		E36021C9213F734F006AAD5D /* BoxRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxRenderer.h; sourceTree = "<group>"; };
+		E36021CA213F734F006AAD5D /* VideoRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRenderer.m; sourceTree = "<group>"; };
+		E36021CB213F734F006AAD5D /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		E36021CC213F734F006AAD5D /* helloar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helloar.m; sourceTree = "<group>"; };
+		E36021CD213F734F006AAD5D /* BoxRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxRenderer.m; sourceTree = "<group>"; };
+		E36021CE213F734F006AAD5D /* ARVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARVideo.m; sourceTree = "<group>"; };
 		E36242C21F61444F00A7B612 /* Mp3Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3Player.h; sourceTree = "<group>"; };
 		E36242C31F61444F00A7B612 /* Mp3Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3Player.m; sourceTree = "<group>"; };
 		E36242EE1F67C49500A7B612 /* FileUtil+Museum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FileUtil+Museum.h"; sourceTree = "<group>"; };
@@ -962,6 +983,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3A575F91E81014C00D871A3 /* AVFoundation.framework in Frameworks */,
+				E3A575F51E81013C00D871A3 /* CoreMedia.framework in Frameworks */,
+				E3F8D7831E60654900C637B2 /* CoreGraphics.framework in Frameworks */,
+				E36021BE213F725C006AAD5D /* OpenGLES.framework in Frameworks */,
 				E35A914E20A446E800DFF6DB /* libc++.tbd in Frameworks */,
 				E35A914B20A4469300DFF6DB /* Pods_MuseumGuide2_0.framework in Frameworks */,
 				E35A914A20A4463700DFF6DB /* libxml2.tbd in Frameworks */,
@@ -969,13 +994,11 @@
 				E3A576381E812EE600D871A3 /* SystemConfiguration.framework in Frameworks */,
 				E3A575F31E81013000D871A3 /* AudioToolbox.framework in Frameworks */,
 				E3A576331E812EBE00D871A3 /* MediaPlayer.framework in Frameworks */,
-				E3A575F51E81013C00D871A3 /* CoreMedia.framework in Frameworks */,
+				E36021C0213F72E0006AAD5D /* easyar.framework in Frameworks */,
 				E32F33CD1F6B940E0041A016 /* KudanAR.framework in Frameworks */,
-				E3F8D7831E60654900C637B2 /* CoreGraphics.framework in Frameworks */,
 				E3A576321E812E8700D871A3 /* CoreFoundation.framework in Frameworks */,
 				E3A576301E812E8100D871A3 /* CoreVideo.framework in Frameworks */,
 				E3A575FD1E8102D100D871A3 /* WebKit.framework in Frameworks */,
-				E3A575F91E81014C00D871A3 /* AVFoundation.framework in Frameworks */,
 				E3A575ED1E81011400D871A3 /* libz.tbd in Frameworks */,
 				E3F8D7811E60653F00C637B2 /* UIKit.framework in Frameworks */,
 				E3A575EB1E81010800D871A3 /* Foundation.framework in Frameworks */,
@@ -1014,6 +1037,7 @@
 		B80B48BCDC6CD1530ABDF039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E36021BF213F72E0006AAD5D /* easyar.framework */,
 				E31548792043B42300A860A1 /* PhotosUI.framework */,
 				E31548772043B3E300A860A1 /* Photos.framework */,
 				E32F33CC1F6B940E0041A016 /* KudanAR.framework */,
@@ -1616,6 +1640,23 @@
 			path = NAMapKit;
 			sourceTree = "<group>";
 		};
+		E36021C4213F734F006AAD5D /* EasyAR */ = {
+			isa = PBXGroup;
+			children = (
+				E36021C5213F734F006AAD5D /* OpenGLView.h */,
+				E36021C6213F734F006AAD5D /* helloar.h */,
+				E36021C7213F734F006AAD5D /* VideoRenderer.h */,
+				E36021C8213F734F006AAD5D /* ARVideo.h */,
+				E36021C9213F734F006AAD5D /* BoxRenderer.h */,
+				E36021CA213F734F006AAD5D /* VideoRenderer.m */,
+				E36021CB213F734F006AAD5D /* OpenGLView.m */,
+				E36021CC213F734F006AAD5D /* helloar.m */,
+				E36021CD213F734F006AAD5D /* BoxRenderer.m */,
+				E36021CE213F734F006AAD5D /* ARVideo.m */,
+			);
+			path = EasyAR;
+			sourceTree = "<group>";
+		};
 		E36242A81F612DF700A7B612 /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -1824,9 +1865,11 @@
 		E3F8D8141E63BB2600C637B2 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				E36021C1213F7310006AAD5D /* EasyARViewController.h */,
+				E3F8D90C1E65719A00C637B2 /* MLNavigationController.h */,
+				E36021C2213F7310006AAD5D /* EasyARViewController.m */,
 				E35098B61F2EC3CE000D44E3 /* RootTarBarController.h */,
 				E35098B71F2EC3CE000D44E3 /* RootTarBarController.m */,
-				E3F8D90C1E65719A00C637B2 /* MLNavigationController.h */,
 				E3F8D90D1E65719A00C637B2 /* MLNavigationController.m */,
 				E3F8D81B1E63BB4200C637B2 /* BaseViewController.h */,
 				E3F8D81C1E63BB4200C637B2 /* BaseViewController.m */,
@@ -2003,6 +2046,7 @@
 		E3F9C5D71E602E150037698F /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				E36021C4213F734F006AAD5D /* EasyAR */,
 				E31E818F1F94543C00DF277D /* SakuraKit */,
 				E31ED21D1EEF8EA600E8AD87 /* NAMapKit */,
 				E30C17BE1E72532600F2F729 /* SVGParser */,
@@ -2337,6 +2381,7 @@
 				E30C18B71E72532600F2F729 /* CSSStyleRule.m in Sources */,
 				E36BE1BE1E6E66D7006AA1EF /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				E30C179D1E712E9500F2F729 /* YYLabel.m in Sources */,
+				E36021D1213F734F006AAD5D /* helloar.m in Sources */,
 				E30C17981E712E9500F2F729 /* UIView+YYText.m in Sources */,
 				E3794C431F6A7650006B6C02 /* ApiFactory+Tour.m in Sources */,
 				E3F8D80F1E63B9FC00C637B2 /* NSErrorHelper.m in Sources */,
@@ -2474,6 +2519,7 @@
 				E30C16F41E6FE14700F2F729 /* ASValueTrackingSlider.m in Sources */,
 				E30C190A1E72532600F2F729 /* SVGKSource.m in Sources */,
 				E3F8D84A1E64038200C637B2 /* MuseumInfoTextView.m in Sources */,
+				E36021D2213F734F006AAD5D /* BoxRenderer.m in Sources */,
 				E30C17901E712E9500F2F729 /* YYTextArchiver.m in Sources */,
 				E35C94181EE535B400F671BD /* SearchAllModel.m in Sources */,
 				E30C18B21E72532600F2F729 /* Comment.m in Sources */,
@@ -2499,6 +2545,7 @@
 				E3A575601E7F77B700D871A3 /* ExhibitCommentModel.m in Sources */,
 				E30C178E1E712E9500F2F729 /* YYTextMagnifier.m in Sources */,
 				E30C18F31E72532600F2F729 /* SVGKParserDefsAndUse.m in Sources */,
+				E36021CF213F734F006AAD5D /* VideoRenderer.m in Sources */,
 				E30C19101E72532600F2F729 /* SVGKPattern.m in Sources */,
 				E30C178B1E712E9500F2F729 /* YYTextKeyboardManager.m in Sources */,
 				E3A5756C1E7F7DD900D871A3 /* SearchViewModel.m in Sources */,
@@ -2507,6 +2554,7 @@
 				E31ED23D1EEF8EA600E8AD87 /* NAAnnotationView.m in Sources */,
 				E37E4C691ED9136000CFEC45 /* KudanARViewController.m in Sources */,
 				E30C190C1E72532600F2F729 /* NSData+NSInputStream.m in Sources */,
+				E36021D0213F734F006AAD5D /* OpenGLView.m in Sources */,
 				E30C18F51E72532600F2F729 /* SVGKParserGradient.m in Sources */,
 				E30C18ED1E72532600F2F729 /* SVGTitleElement.m in Sources */,
 				E31ED23E1EEF8EA600E8AD87 /* NACallOutView.m in Sources */,
@@ -2518,6 +2566,7 @@
 				E30C18BF1E72532600F2F729 /* Element.m in Sources */,
 				E30C18E21E72532600F2F729 /* SVGGroupElement.m in Sources */,
 				E30C18C91E72532600F2F729 /* SVGAngle.m in Sources */,
+				E36021C3213F7311006AAD5D /* EasyARViewController.m in Sources */,
 				E30C19031E72532600F2F729 /* SVGKLayer.m in Sources */,
 				E30C18D31E72532600F2F729 /* SVGMatrix.m in Sources */,
 				E30C18D81E72532600F2F729 /* SVGTextPositioningElement.m in Sources */,
@@ -2544,6 +2593,7 @@
 				E36BE1C21E6E66D7006AA1EF /* ZLPhotoPickerGroup.m in Sources */,
 				E3F9C59F1E602DCD0037698F /* main.m in Sources */,
 				E3F8D8EA1E641D6E00C637B2 /* MuseumInfoTextTableViewCell.m in Sources */,
+				E36021D3213F734F006AAD5D /* ARVideo.m in Sources */,
 				E30C18B01E72532600F2F729 /* CDATASection.m in Sources */,
 				E30C17961E712E9500F2F729 /* NSParagraphStyle+YYText.m in Sources */,
 				E30C16FF1E6FE14700F2F729 /* ZFPlayerModel.m in Sources */,
@@ -2797,7 +2847,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot.easyar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2896,7 +2946,7 @@
 					"-framework",
 					"\"SystemConfiguration\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot;
+				PRODUCT_BUNDLE_IDENTIFIER = com.museumguide.kudanlocalmorepot.easyar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

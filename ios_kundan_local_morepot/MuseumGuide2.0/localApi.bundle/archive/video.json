@@ -1,0 +1,103 @@
+{
+  "objects": [
+    {
+      "videoname": "song.mp4",
+      "name": "XMT_jjcjl",
+      "x": "-0.5",
+      "y": "-0.3",
+      "z": "0",
+      "scale_x": "1.4",
+      "scale_y": "1.0"
+    },
+    {
+      "videoname": "jiangnan.mp4",
+      "name": "XMT_jnyq_01",
+      "x": "5",
+      "y": "-5",
+      "z": "0",
+      "scale_x": "3",
+      "scale_y": "2"
+    },
+    {
+      "videoname": "jiangnan.mp4",
+      "name": "XMT_jnyq",
+      "x": "5",
+      "y": "-5",
+      "z": "0",
+      "scale_x": "3",
+      "scale_y": "2"
+    },
+    {
+      "videoname": "langqiyu.mp4",
+      "name": "XMT_lqy",
+      "x": "0",
+      "y": "1.6",
+      "z": "0",
+      "scale_x": "2",
+      "scale_y": "2"
+    },
+    {
+      "videoname": "tinqintu.mp4",
+      "name": "XMT_tqt",
+      "x": "0",
+      "y": "0",
+      "z": "0",
+      "scale_x": "2",
+      "scale_y": "2"
+    },
+    {
+      "videoname": "nh.mp4",
+      "name": "XMT_yxmchsdtwxnh_01",
+      "x": "-0.4",
+      "y": "0",
+      "z": "0",
+      "scale_x": "1.0",
+      "scale_y": "1.0"
+    },
+    {
+      "videoname": "nh.mp4",
+      "name": "XMT_yxmchsdtwxnh",
+      "x": "-0.4",
+      "y": "0",
+      "z": "0",
+      "scale_x": "1.0",
+      "scale_y": "1.0"
+    },
+    {
+      "videoname": "xianglu.mp4",
+      "name": "XMT_yyqcxx",
+      "x": "0",
+      "y": "1.6",
+      "z": "0",
+      "scale_x": "2",
+      "scale_y": "2"
+    },
+    {
+      "videoname": "zhenghe.mp4",
+      "name": "XMT_zhbc_01",
+      "x": "-0.2",
+      "y": "0",
+      "z": "0",
+      "scale_x": "0.7",
+      "scale_y": "0.3"
+    },
+    {
+      "videoname": "zhenghe.mp4",
+      "name": "XMT_zhbc_02",
+      "x": "-0.2",
+      "y": "0",
+      "z": "0",
+      "scale_x": "0.7",
+      "scale_y": "0.3"
+    },
+    {
+      "videoname": "zhenghe.mp4",
+      "name": "XMT_zhbc",
+      "x": "-0.2",
+      "y": "0",
+      "z": "0",
+      "scale_x": "0.7",
+      "scale_y": "0.3"
+    }
+  ]
+}   

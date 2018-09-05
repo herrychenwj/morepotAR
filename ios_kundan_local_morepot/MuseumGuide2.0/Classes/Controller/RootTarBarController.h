@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KudanARViewController.h"
+#import "EasyARViewController.h"
 @interface RootTarBarController : UITabBarController
 
-@property (nonatomic,strong)KudanARViewController *arVC;
+@property (nonatomic,strong)EasyARViewController *arVC;
 
 - (void)configKuDan:(MuseumModel *)museum;
 

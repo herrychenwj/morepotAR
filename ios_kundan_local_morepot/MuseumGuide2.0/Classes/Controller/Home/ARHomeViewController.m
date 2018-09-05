@@ -13,7 +13,7 @@
 #import "MuseumGuideViewController.h"
 #import "SearchViewController.h"
 #import "WelcomeVideoViewController.h"
-#import "KudanARViewController.h"
+#import "EasyARViewController.h"
 #import "RootTarBarController.h"
 
 #import "MuseumInfoModel.h"
@@ -25,7 +25,7 @@
 #import "LocalJsonManager.h"
 #import "MBProgressHUD+Add.h"
 
-@interface ARHomeViewController ()<KudanARDelegate>
+@interface ARHomeViewController ()<ARDelegate>
 
 @property (nonatomic,strong)MuseumModel *museum;
 
@@ -36,7 +36,7 @@
 @property (nonatomic,strong)NSMutableArray *exhibitids;
 //结束
 @property (nonatomic,strong)ARHomeViewModel *viewModel;
-@property (nonatomic,weak)KudanARViewController *arVC;
+@property (nonatomic,weak)EasyARViewController *arVC;
 @property (nonatomic,strong)NSString *cur_exhibit_id;
 @property (nonatomic,assign)BOOL hideWarning; //手动显示和隐藏警示标签
 @property (nonatomic,strong)MBProgressHUD *hud;
@@ -81,7 +81,7 @@ static BOOL is_loading = NO;
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.cur_exhibit_id = nil;
-    self.arVC.delegate = self;
+    self.arVC.arDelegate = self;
 }
 
 - (void)setCur_exhibit_id:(NSString *)cur_exhibit_id{
@@ -189,7 +189,7 @@ static BOOL is_loading = NO;
     }];
     
     //识别到多个标签的时候
-    [[self rac_signalForSelector:@selector(kudanOnTrack:Exhibition_names:hasARVideo:enTitle:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(RACTuple *x) {
+    [[self rac_signalForSelector:@selector(onTrack:Exhibition_names:hasARVideo:enTitle:) fromProtocol:@protocol(ARDelegate)]subscribeNext:^(RACTuple *x) {
         @strongify(self);
         NSArray *ids = x[1];
         if (is_loading) {return;}
@@ -248,7 +248,7 @@ static BOOL is_loading = NO;
     }];
     
     
-    [[self rac_signalForSelector:@selector(kudanOnTrack:Exhibition_name:hasARVideo:enTitle:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(RACTuple *x) {
+    [[self rac_signalForSelector:@selector(onTrack:Exhibition_name:hasARVideo:enTitle:) fromProtocol:@protocol(ARDelegate)]subscribeNext:^(RACTuple *x) {
         @strongify(self);
         if (is_loading) {return;}
         is_loading = YES;
@@ -277,15 +277,12 @@ static BOOL is_loading = NO;
     }];
     [[self.mainView.closeVideoBtn rac_signalForControlEvents:UIControlEventTouchUpInside]subscribeNext:^(id x) {
         @strongify(self);
-        if (self.cur_exhibit_id) {
-            if ([self.arVC isARVideoWithExhibitID:self.cur_exhibit_id]) {
-                [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
-                [self.arVC hiddenVideo];
-            }
-        }
+        self.mainView.closeVideoBtn.hidden = YES;
+        [self.arVC hiddenVideo];
+        [self.viewModel.exhibitInfoCmd execute:self.cur_exhibit_id?:@""];
     }];
     
-    [[self rac_signalForSelector:@selector(kudanLostTrack) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
+    [[self rac_signalForSelector:@selector(lostTrack) fromProtocol:@protocol(ARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
         self.cur_exhibit_id = nil;
         [self.mainView resetExhibitName];
@@ -301,9 +298,8 @@ static BOOL is_loading = NO;
         }
         [self.verExhibitBtns removeAllObjects];
         [self.exhibitids removeAllObjects];
-        
     }];
-    [[self rac_signalForSelector:@selector(kudanFinishVideo:) fromProtocol:@protocol(KudanARDelegate)]subscribeNext:^(id x) {
+    [[self rac_signalForSelector:@selector(finishVideo:) fromProtocol:@protocol(ARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
         NSString *cur_id = x[0];
         [self.mainView resetExhibitName];

@@ -48,6 +48,8 @@
 
 
 @interface KudanARViewController : ARCameraViewController
+
+
 @property (nonatomic,copy)void(^configSuccess)(MuseumModel*);
 //资源解压后的地址 设置后自动配置kudan
 @property (nonatomic,copy)NSString *resourcePath;

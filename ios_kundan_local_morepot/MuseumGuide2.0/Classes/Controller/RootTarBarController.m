@@ -14,6 +14,7 @@
 #import "FileUtil.h"
 #import "ARHomeViewController.h"
 #import "LocalJsonManager.h"
+#import "EasyARViewController.h"
 
 
 # define TABBAR_HEIGHT 65
@@ -25,9 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    KudanARViewController *arVC = [[KudanARViewController alloc]init];
+    EasyARViewController *arVC = [[EasyARViewController alloc]init];
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"localApi" ofType:@"bundle"];
-    arVC.resourcePath = [NSString stringWithFormat:@"%@/ahbwysjy_museum/",bundlePath];
+    arVC.resourcePath = [NSString stringWithFormat:@"%@/archive/",bundlePath];
     arVC.view.frame = self.view.bounds;
     [self.view addSubview:arVC.view];
     [self.view sendSubviewToBack:arVC.view];

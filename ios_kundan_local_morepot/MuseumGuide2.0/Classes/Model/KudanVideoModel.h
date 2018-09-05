@@ -16,14 +16,10 @@
 @property (nonatomic,assign)float x;
 @property (nonatomic,assign)float y;
 @property (nonatomic,assign)float z;
-@property (nonatomic,assign)float scale;
+@property (nonatomic,assign)float scale_x;
+@property (nonatomic,assign)float scale_y;
 @property (nonatomic,assign)BOOL isfollow;
-//@property (nonatomic,copy)NSString *imgname;
-//@property (nonatomic,assign)float imgX;
-//@property (nonatomic,assign)float imgY;
-//@property (nonatomic,assign)float imgZ;
-//@property (nonatomic,assign)float imgscale;
 
-
+@property (nonatomic,assign)float scale;
 
 @end
