@@ -159,7 +159,6 @@
             [self.arDelegate configStart];
         }
         _resourcePath = resourcePath;
-//        NSString *imgs = [_resourcePath stringByAppendingPathComponent:@"imageplus"];
         [self->glView start:self.resourcePath];
         self.videoAry = nil;
         self.namesAry = nil;
@@ -191,13 +190,6 @@
 }
 
 - (NSString *)exhibit_id:(NSString *)exid{
-//    NSArray *imgs = [[[self.imgAry rac_sequence]filter:^BOOL(NSDictionary *value) {
-//        return [[value objectForKey:@"image"] isEqualToString:exid];
-//    }]array] ;
-//    if (imgs.count == 0 || !imgs ) {
-//        return nil;
-//    }
-//    NSDictionary *img = [imgs firstObject];
     NSString *exhibit_id = exid;
     NSMutableArray *ary = [[exhibit_id componentsSeparatedByString:@"_"] mutableCopy];
     NSString *lastName = [ary lastObject];

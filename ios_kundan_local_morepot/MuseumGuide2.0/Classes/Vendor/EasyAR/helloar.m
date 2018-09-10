@@ -40,6 +40,7 @@ easyar_Renderer * videobg_renderer = nil;
 NSMutableArray<VideoRenderer *> * video_renderers = nil;
 VideoRenderer * current_video_renderer = nil;
 ARVideo * video = nil;
+easyar_Matrix44F  *default_cameraview;
 int tracked_target = 0;
 int active_target = 0;
 
@@ -94,6 +95,27 @@ BOOL initialize(id delegate,NSString *path)
     if (!status) { return status; }
     trackers = [[NSMutableArray<easyar_ImageTracker *> alloc] init];
     loadLoalARresource(path);
+//    -0.9518258,
+//    -0.1187401,
+//    0.2827162,
+//    0,
+//    -0.1007968,
+//    0.991904,
+//    0.07724264,
+//    0,
+//    0.2895991,
+//    -0.04502465,
+//    0.9560885,
+//    0,
+//    0.03338737,
+//    0.154984,
+//    -2.120883,
+//    1
+    if (IPAD_DEVICE) {
+        default_cameraview = [easyar_Matrix44F create: @[@(-0.9518258),@(-0.1187401), @(0.2827162), @0, @(-0.1007968), @(0.991904), @(0.07724264), @0,@(0.2895991), @(-0.04502465), @(0.9560885), @0, @(0.03338737), @(0.154984), @(-2.120883), @(1.0f)]];
+    }else {
+        default_cameraview = [easyar_Matrix44F create: @[@(-0.008995744),@(-0.9999517), @(0.003958957), @0, @(-0.9983432), @(0.009206148), @(0.05679841), @0,@(0.05683211), @(0.003441454), @(0.9983778), @0, @(0.04916509), @(-0.05850305), @(-2.215296), @(1.0f)]];
+    }
     return status;
 }
 
@@ -223,28 +245,12 @@ void render(id delegate)
     if (videobg_renderer != nil) {
         [videobg_renderer render:frame viewport:[easyar_Vec4I create:@[[NSNumber numberWithInt:viewport[0]], [NSNumber numberWithInt:viewport[1]], [NSNumber numberWithInt:viewport[2]], [NSNumber numberWithInt:viewport[3]]]]];
     }
-//    -0.008995744,
-//    -0.9999517,
-//    0.003958957,
-//    0,
-//    -0.9983432,
-//    0.009206148,
-//    0.05679841,
-//    0,
-//    0.05683211,
-//    0.003441454,
-//    0.9983778,
-//    0,
-//    0.04916509,
-//    -0.05850305,
-//    -2.215296,
-//    1
+    
     if (current_video_renderer != nil) {
         [video update];
         if ([video isRenderTextureAvailable]) {
-            easyar_Matrix44F  *cameraview = [easyar_Matrix44F create: @[@(-0.008995744),@(-0.9999517), @(0.003958957), @0, @(-0.9983432), @(0.009206148), @(0.05679841), @0,@(0.05683211), @(0.003441454), @(0.9983778), @0, @(0.04916509), @(-0.05850305), @(-2.215296), @(1.0f)]];
             easyar_Vec2F *size = [easyar_Vec2F create:@[@1,@1]];
-            [current_video_renderer render:[camera projectionGL:0.2f farPlane:500.f] cameraview:cameraview size:size scale:videoScale];
+            [current_video_renderer render:[camera projectionGL:0.2f farPlane:500.f] cameraview:default_cameraview size:size scale:videoScale];
         }
     }
     
