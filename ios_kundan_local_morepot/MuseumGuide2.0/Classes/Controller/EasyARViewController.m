@@ -64,9 +64,6 @@
 }
 
 - (void)onTracked:(NSString *)name{
-    if (self.playVideo) {
-        return;
-    }
     dispatch_async(dispatch_get_main_queue(), ^{
         if (!self.current_id) {
             self.current_id = name;

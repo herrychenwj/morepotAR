@@ -95,22 +95,6 @@ BOOL initialize(id delegate,NSString *path)
     if (!status) { return status; }
     trackers = [[NSMutableArray<easyar_ImageTracker *> alloc] init];
     loadLoalARresource(path);
-//    -0.9518258,
-//    -0.1187401,
-//    0.2827162,
-//    0,
-//    -0.1007968,
-//    0.991904,
-//    0.07724264,
-//    0,
-//    0.2895991,
-//    -0.04502465,
-//    0.9560885,
-//    0,
-//    0.03338737,
-//    0.154984,
-//    -2.120883,
-//    1
     if (IPAD_DEVICE) {
         default_cameraview = [easyar_Matrix44F create: @[@(-0.9518258),@(-0.1187401), @(0.2827162), @0, @(-0.1007968), @(0.991904), @(0.07724264), @0,@(0.2895991), @(-0.04502465), @(0.9560885), @0, @(0.03338737), @(0.154984), @(-2.120883), @(1.0f)]];
     }else {
@@ -246,7 +230,7 @@ void render(id delegate)
         [videobg_renderer render:frame viewport:[easyar_Vec4I create:@[[NSNumber numberWithInt:viewport[0]], [NSNumber numberWithInt:viewport[1]], [NSNumber numberWithInt:viewport[2]], [NSNumber numberWithInt:viewport[3]]]]];
     }
     
-    if (current_video_renderer != nil) {
+    if (current_video_renderer != nil&&video != nil) {
         [video update];
         if ([video isRenderTextureAvailable]) {
             easyar_Vec2F *size = [easyar_Vec2F create:@[@1,@1]];
@@ -317,6 +301,7 @@ void playVideo(NSString *path,VideoScale scale,NSString *exid){
 
 void stopVideo(){
     [video onLost];
+     video = nil;
 }
 
 

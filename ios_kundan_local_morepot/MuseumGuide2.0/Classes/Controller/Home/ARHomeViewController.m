@@ -103,7 +103,7 @@ static BOOL is_loading = NO;
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    self.arVC.delegate = nil;
+    self.arVC.arDelegate = nil;
 }
 
 
@@ -252,7 +252,7 @@ static BOOL is_loading = NO;
         @strongify(self);
         if (is_loading) {return;}
         is_loading = YES;
-        if (!self.cur_exhibit_id) {
+        if (!self.cur_exhibit_id && !self.arVC.playVideo) {
             [Communtil playExhitbitSound];
             self.cur_exhibit_id = x[0];
             BOOL hasVideo = [x[2] boolValue];
@@ -261,10 +261,12 @@ static BOOL is_loading = NO;
             NSString *copyID = self.cur_exhibit_id;
             if (self.cur_exhibit_id&&hasVideo) { //播放AR视频
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self.mainView hideAllElement];
-                    [self.arVC showARVideo:copyID];
-                    if (self.arVC.playVideo) {
-                        self.mainView.closeVideoBtn.hidden = NO;
+                    if (self.cur_exhibit_id && !self.arVC.playVideo){
+                        [self.mainView hideAllElement];
+                        [self.arVC showARVideo:copyID];
+                        if (self.arVC.playVideo) {
+                            self.mainView.closeVideoBtn.hidden = NO;
+                        }
                     }
                 });
             }else if(self.cur_exhibit_id&&!hasVideo){
@@ -284,6 +286,7 @@ static BOOL is_loading = NO;
     
     [[self rac_signalForSelector:@selector(lostTrack) fromProtocol:@protocol(ARDelegate)]subscribeNext:^(id x) {
         @strongify(self);
+        if (self.arVC.playVideo){return;}
         self.cur_exhibit_id = nil;
         [self.mainView resetExhibitName];
         [self.mainView hideAllElement];
