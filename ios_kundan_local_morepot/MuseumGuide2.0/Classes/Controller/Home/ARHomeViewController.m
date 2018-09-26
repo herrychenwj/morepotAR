@@ -58,8 +58,12 @@ static BOOL is_loading = NO;
     RootTarBarController *tabVC = (RootTarBarController *)self.tabBarController;
     self.arVC = tabVC.arVC;
     [super viewDidLoad];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"logo_1498016467"] forState:UIControlStateNormal];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"logo_1498016467"] forState:UIControlStateHighlighted];
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"localApi" ofType:@"bundle"];
+    NSString *imgPath = [NSString stringWithFormat:@"%@/local_api/museum_logo.jpg",bundlePath];
+    NSData *imgData = [NSData dataWithContentsOfFile:imgPath];
+    UIImage *img = [UIImage imageWithData:imgData];
+    [self.mainView.logoBtn setImage:img forState:UIControlStateNormal];
+    [self.mainView.logoBtn setImage:img forState:UIControlStateHighlighted];
 }
 
 - (MBProgressHUD *)hud{
