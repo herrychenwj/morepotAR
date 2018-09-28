@@ -157,6 +157,7 @@
 		E30C60C01E779A9300B91A38 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = E30C60BF1E779A9300B91A38 /* MBProgressHUD+Add.m */; };
 		E30DD0291ED80D880048FAAA /* WelcomeVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E30DD0281ED80D880048FAAA /* WelcomeVideoViewController.m */; };
 		E30E5D271E8C9B2E004F8C68 /* HomeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = E30E5D261E8C9B2E004F8C68 /* HomeFooterView.m */; };
+		E3145CBB215B4C4E00F7BBDC /* 古蜀宝藏.png in Resources */ = {isa = PBXBuildFile; fileRef = E3145CBA215B4C4E00F7BBDC /* 古蜀宝藏.png */; };
 		E317450B1E78E6BB00AA3A9D /* MapGuideViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E317450A1E78E6BB00AA3A9D /* MapGuideViewModel.m */; };
 		E317450E1E78EB6E00AA3A9D /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E317450D1E78EB6E00AA3A9D /* MapModel.m */; };
 		E31745111E78F13200AA3A9D /* MapFloorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E31745101E78F13200AA3A9D /* MapFloorTableViewCell.m */; };
@@ -672,6 +673,7 @@
 		E30DD0281ED80D880048FAAA /* WelcomeVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeVideoViewController.m; sourceTree = "<group>"; };
 		E30E5D251E8C9B2E004F8C68 /* HomeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeFooterView.h; sourceTree = "<group>"; };
 		E30E5D261E8C9B2E004F8C68 /* HomeFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeFooterView.m; sourceTree = "<group>"; };
+		E3145CBA215B4C4E00F7BBDC /* 古蜀宝藏.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "古蜀宝藏.png"; sourceTree = "<group>"; };
 		E31548772043B3E300A860A1 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E31548792043B42300A860A1 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		E31745091E78E6BB00AA3A9D /* MapGuideViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGuideViewModel.h; sourceTree = "<group>"; };
@@ -1930,6 +1932,7 @@
 		E3F9C59D1E602DCD0037698F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3145CBA215B4C4E00F7BBDC /* 古蜀宝藏.png */,
 				E3DA197620FAEBA600FFA1A7 /* phone_bg.jpg */,
 				E3DA197420FADE5A00FFA1A7 /* bg.jpg */,
 				E3DA197220FADE5200FFA1A7 /* bg-x.jpg */,
@@ -2249,6 +2252,7 @@
 				E31745341E7BD77F00AA3A9D /* Localizable.strings in Resources */,
 				E3DA197520FADE5A00FFA1A7 /* bg.jpg in Resources */,
 				E3F9C5AD1E602DCD0037698F /* Assets.xcassets in Resources */,
+				E3145CBB215B4C4E00F7BBDC /* 古蜀宝藏.png in Resources */,
 				E31E818C1F94526900DF277D /* Localizable_cn.json in Resources */,
 				E31ED2421EEF8EA600E8AD87 /* pinPurple.png in Resources */,
 				E3BBA7FC1FCFE92B00BDF84B /* Launch Screen.storyboard in Resources */,
@@ -2743,7 +2747,7 @@
 			baseConfigurationReference = 92F3B8E0AB326042CFAAB4CC /* Pods-MuseumGuide2.0.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -2842,7 +2846,7 @@
 			baseConfigurationReference = 1176A80D18E08F3E4690BA26 /* Pods-MuseumGuide2.0.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Suzhou Heyunguanbo Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

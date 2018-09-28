@@ -60,8 +60,8 @@ static BOOL is_loading = NO;
     RootTarBarController *tabVC = (RootTarBarController *)self.tabBarController;
     self.arVC = tabVC.arVC;
     [super viewDidLoad];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"gshz"] forState:UIControlStateNormal];
-    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"gshz"] forState:UIControlStateHighlighted];
+    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"古蜀宝藏"] forState:UIControlStateNormal];
+    [self.mainView.logoBtn setImage:[UIImage imageNamed:@"古蜀宝藏"] forState:UIControlStateHighlighted];
 }
 
 - (MBProgressHUD *)hud{
